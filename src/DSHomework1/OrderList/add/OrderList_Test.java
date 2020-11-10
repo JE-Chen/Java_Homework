@@ -1,21 +1,22 @@
 package DSHomework1.OrderList.add;
 
-import java.util.ArrayList;
-import java.util.List;
 
 public class OrderList_Test {
 
     public static void main(String[] argv) {
-        List<String> stringList = new ArrayList<>();
-        OrderListAdd<String> orderListAdd = new OrderListAdd<>(stringList);
-        orderListAdd.add("A");
-        orderListAdd.add("B");
-        orderListAdd.add("C");
-        orderListAdd.add("D");
-        orderListAdd.add("E");
-        orderListAdd.add("F");
-        orderListAdd.add("G");
-        System.out.println(stringList.toString());
+        OrderListAdd<String> orderList = new OrderListAdd<>();
+        orderList.add("A");
+        orderList.add("B");
+        orderList.add("C");
+        orderList.add("D");
+        System.out.println(orderList.get(0));
+        System.out.println(orderList.toString());
+        OrderListAdd<Integer> orderList1 = new OrderListAdd<>();
+        orderList1.add(10);
+        orderList1.add(20);
+        orderList1.add(30);
+        System.out.println(orderList1.get(0));
+        System.out.println(orderList1.toString());
     }
 
 }

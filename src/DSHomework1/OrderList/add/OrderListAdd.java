@@ -1,17 +1,18 @@
 package DSHomework1.OrderList.add;
 
-import java.util.List;
+import java.util.LinkedList;
 import java.util.ListIterator;
 
-public class OrderListAdd<E> {
+public class OrderListAdd<E> extends LinkedList<E> {
 
-    private ListIterator listIterator;
+    private ListIterator<E> listIterator;
 
-    public OrderListAdd(List addList) {
-        listIterator = addList.listIterator();
+    public OrderListAdd() {
+        listIterator = this.listIterator();
     }
 
-    public void add(E element) {
+    @Override
+    public boolean add(E element) {
 
         while (listIterator.hasNext())
             listIterator.next();
@@ -20,6 +21,7 @@ public class OrderListAdd<E> {
             listIterator.previous();
         }
         listIterator.add(element);
+        return false;
     }
 
 }
