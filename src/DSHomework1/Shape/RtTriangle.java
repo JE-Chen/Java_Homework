@@ -16,17 +16,17 @@ public class RtTriangle extends Shape {
     }
 
     @Override
-    double computeArea() {
+    public double computeArea() {
         return (this.base * this.height) / 2;
     }
 
     @Override
-    double computePerimeter() {
+    public double computePerimeter() {
         return base * 3;
     }
 
     @Override
-    void readShapeData(double base, double height) {
+    public void readShapeData(double base, double height) {
         this.base = base;
         this.height = height;
     }
