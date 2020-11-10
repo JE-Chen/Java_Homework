@@ -9,6 +9,13 @@ public class OrderList_Test {
         orderList.add("B");
         orderList.add("C");
         orderList.add("D");
+        orderList.add("E");
+        orderList.add("F");
+        orderList.add("G");
+        orderList.add("H");
+        orderList.add("I");
+        orderList.add("J");
+        orderList.add("K");
         System.out.println(orderList.get(0));
         System.out.println(orderList.toString());
         OrderListAdd<Integer> orderList1 = new OrderListAdd<>();

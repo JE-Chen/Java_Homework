@@ -8,18 +8,15 @@ public class OrderListAdd<E> extends LinkedList<E> {
     private ListIterator<E> listIterator;
 
     public OrderListAdd() {
-        listIterator = this.listIterator();
+        listIterator = this.listIterator(this.size());
     }
 
     @Override
     public boolean add(E element) {
 
-        while (listIterator.hasNext())
-            listIterator.next();
-
-        while (listIterator.hasPrevious()) {
+        while (listIterator.hasPrevious())
             listIterator.previous();
-        }
+
         listIterator.add(element);
         return false;
     }
