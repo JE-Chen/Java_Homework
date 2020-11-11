@@ -14,6 +14,9 @@ public class OrderList_Test {
         orderList.add("E");
         orderList.add("F");
         orderList.add("I");
+        orderList.add("Z");
+        orderList.add("Y");
+        orderList.add("X");
         System.out.println(orderList.toString());
 
         OrderListAdd<Integer> orderList1 = new OrderListAdd<>();
@@ -22,6 +25,11 @@ public class OrderList_Test {
         orderList1.add(40);
         orderList1.add(10);
         orderList1.add(20);
+        orderList1.add(90);
+        orderList1.add(100);
+        orderList1.add(80);
+        orderList1.add(60);
+        orderList1.add(70);
         System.out.println(orderList1.toString());
     }
 }
