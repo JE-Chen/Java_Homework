@@ -1,10 +1,9 @@
 package DSHomework1.OrderList.add;
 
-
 public class OrderList_Test {
 
     public static void main(String[] argv) {
-        OrderListAdd<String> orderList = new OrderListAdd<>();
+        OrderList<String> orderList = new OrderList<>();
         orderList.add("H");
         orderList.add("G");
         orderList.add("D");
@@ -19,7 +18,7 @@ public class OrderList_Test {
         orderList.add("X");
         System.out.println(orderList.toString());
 
-        OrderListAdd<Integer> orderList1 = new OrderListAdd<>();
+        OrderList<Integer> orderList1 = new OrderList<>();
         orderList1.add(50);
         orderList1.add(30);
         orderList1.add(40);

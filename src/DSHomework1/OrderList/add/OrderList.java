@@ -3,7 +3,7 @@ package DSHomework1.OrderList.add;
 import java.util.LinkedList;
 import java.util.ListIterator;
 
-public class OrderListAdd<E> extends LinkedList<E> {
+public class OrderList<E extends Comparable<? super E>> extends LinkedList<E>{
 
     @Override
     public boolean add(E element) {
