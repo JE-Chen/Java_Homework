@@ -31,5 +31,12 @@ public class OrderList_Test {
         orderList1.add(70);
         System.out.println(orderList1.toString());
 
+        OrderList<Character> characterOrderList = new OrderList<>();
+        characterOrderList.add('c');
+        characterOrderList.add('d');
+        characterOrderList.add('a');
+        characterOrderList.add('e');
+        System.out.println(characterOrderList.toString());
+
     }
 }
