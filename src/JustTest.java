@@ -1,5 +1,3 @@
-import com.sun.tools.javac.Main;
-
 interface Test{
 
     //必須實作
@@ -24,6 +22,9 @@ public class JustTest implements Test{
         Test test = new JustTest();
         //不需覆寫直接呼叫
         test.defaultTest("JE");
+
+        System.out.println("------------------------------------");
+
         //呼叫覆寫後的
         test.abstractTest();
 
@@ -36,6 +37,7 @@ public class JustTest implements Test{
 
     @Override
     public void abstractTest() {
+        this.defaultTest("JustTest");
         System.out.println("abstractTest in JustTest");
     }
 
@@ -43,6 +45,7 @@ public class JustTest implements Test{
 
         @Override
         public void abstractTest() {
+            this.defaultTest("abstractTest");
             System.out.println("abstractTest in implementsTest");
         }
     }
