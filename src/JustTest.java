@@ -1,36 +1,50 @@
-import java.util.ListIterator;
-import java.util.LinkedList;
-import java.util.Iterator;
+import com.sun.tools.javac.Main;
 
-public class JustTest<E extends Comparable<E>> implements Iterable<E> {
-    public static void main(String[] args) {
-        JustTest<String> content = new JustTest<>();
-        content.add("A");
-        content.add("B");
-        content.add("C");
-        content.add("D");
-        System.out.println(content.toString());
+interface Test{
+
+    //必須實作
+    abstract void abstractTest();
+
+    //沒有被繼承 不必實作
+    default void defaultTest(String name){
+        privateTest(name);
     }
-    private LinkedList<E> theList = new LinkedList<>();
-    public void add(E obj) {
-        ListIterator<E> iter = theList.listIterator(theList.size());
-        while (iter.hasPrevious()) {
-            if (obj.compareTo(iter.previous()) > 0) {
-                iter.next();
-                iter.add(obj);
-                return;
-            }
+
+    //沒有被繼承 不必實作
+    private void privateTest(String name){
+        System.out.println("Hello " + name);
+    }
+
+}
+
+public class JustTest implements Test{
+
+    public static void main(String[] argv){
+        //可以用實例化界面的方式
+        Test test = new JustTest();
+        //不需覆寫直接呼叫
+        test.defaultTest("JE");
+        //呼叫覆寫後的
+        test.abstractTest();
+
+        //動態繫結到另一個有實作介面的類別
+        test = new implementsTest();
+        //呼叫另一個類別實作的方法
+        test.abstractTest();
+
+    }
+
+    @Override
+    public void abstractTest() {
+        System.out.println("abstractTest in JustTest");
+    }
+
+    static class implementsTest implements Test{
+
+        @Override
+        public void abstractTest() {
+            System.out.println("abstractTest in implementsTest");
         }
-        iter.add(obj);
     }
 
-    public E get(int index) {
-        return theList.get(index);
-    }
-    public Iterator<E> iterator() {
-        return theList.iterator();
-    }
-    public String toString() {
-        return theList.toString();
-    }
 }
