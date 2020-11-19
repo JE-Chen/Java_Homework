@@ -12,8 +12,10 @@ public interface IA {
 
     public static final double pi = 3.14;
 
+    /*
     private void func() {
         System.out.println(pi);
     }
+    */
 
 }

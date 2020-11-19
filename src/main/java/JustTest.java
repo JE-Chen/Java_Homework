@@ -5,14 +5,15 @@ interface Test{
 
     //沒有被繼承 不必實作
     default void defaultTest(String name){
-        privateTest(name);
+        //privateTest(name);
     }
 
+    /*
     //沒有被繼承 不必實作
     private void privateTest(String name){
         System.out.println("Hello " + name);
     }
-
+     */
 }
 
 public class JustTest implements Test{
