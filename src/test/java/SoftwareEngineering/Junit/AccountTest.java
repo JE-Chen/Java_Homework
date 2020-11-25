@@ -8,14 +8,14 @@ public class AccountTest {
     @Test
     public void testWithdraw1(){
         Account account = new Account("JE-Chen",10000L,400000.5f);
-        boolean canDeposit = account.withdraw(100000000.f,5f);
-        assertFalse(canDeposit);
+        boolean canWithdraw = account.withdraw(100000000.f,5f);
+        assertFalse(canWithdraw);
     }
     @Test
     public void testWithdraw2(){
         Account account = new Account("JE-Chen",10000L,400000.5f);
-        boolean canDeposit = account.withdraw(1000.f,5f);
-        assertTrue(canDeposit);
+        boolean canWithdraw = account.withdraw(1000.f,5f);
+        assertTrue(canWithdraw);
     }
 
     @Test
@@ -30,5 +30,22 @@ public class AccountTest {
         Account account = new Account("JE-Chen",10000L,400000.5f);
         boolean canDeposit = account.deposit(200.f);
         assertTrue(canDeposit);
+    }
+
+    @Test
+    public void testWrongData(){
+        Account account = new Account("JE-Chen","100","40000");
+    }
+
+    public void testWrongWithdraw(){
+        Account account = new Account("JE-Chen",100,2000f);
+        boolean canWithdraw = account.withdraw("200","2");
+        assertFalse(canWithdraw);
+    }
+
+    public void testWrongDeposit(){
+        Account account = new Account("JE-Chen",100,2000f);
+        boolean canDeposit = account.deposit("200");
+        assertFalse(canDeposit);
     }
 }
