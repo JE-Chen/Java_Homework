@@ -31,21 +31,4 @@ public class AccountTest {
         boolean canDeposit = account.deposit(200.f);
         assertTrue(canDeposit);
     }
-
-    @Test
-    public void testWrongData(){
-        Account account = new Account("JE-Chen","100","40000");
-    }
-
-    public void testWrongWithdraw(){
-        Account account = new Account("JE-Chen",100,2000f);
-        boolean canWithdraw = account.withdraw("200","2");
-        assertFalse(canWithdraw);
-    }
-
-    public void testWrongDeposit(){
-        Account account = new Account("JE-Chen",100,2000f);
-        boolean canDeposit = account.deposit("200");
-        assertFalse(canDeposit);
-    }
 }
