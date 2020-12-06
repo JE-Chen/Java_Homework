@@ -1,4 +1,4 @@
-package Test;
+package DSTest.directory;
 
 public interface IA {
 
