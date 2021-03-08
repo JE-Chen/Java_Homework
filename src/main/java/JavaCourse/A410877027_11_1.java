@@ -8,100 +8,141 @@ import java.util.List;
 
 public class A410877027_11_1 {
 
-    static char space = ' ', vertical = '-', horizontal = '|', newLine = '\n';
     static int numsCount;
-    static String nums;
-    static int size = 0;
-    static List<String> numsLine1 = Arrays.asList(" - ", "   ", " - ", " - ", "   ", " - ", " - ", " - ", " - ", " - ");
-    static List<String> numsLine2 = Arrays.asList("| |", "  |", "  |", "  |", "| |", "|  ", "|  ", "  |", "| |", "| |");
-    static List<String> numsLine3 = Arrays.asList("   ", "   ", " - ", " - ", " - ", " - ", " - ", "   ", " - ", " - ");
-    static List<String> numsLine4 = Arrays.asList("| |", "  |", "|  ", "  |", "  |", "  |", "| |", "  |", "| |", "  |");
-    static List<String> numsLine5 = Arrays.asList(" - ", "   ", " - ", " - ", "   ", " - ", " - ", "   ", " - ", " - ");
+    static String nums = "not Null";
+    static int size = 1;
+    static List<String> numsLine1;
+    static List<String> numsLine2;
+    static List<String> numsLine3;
+    static List<String> numsLine4;
+    static List<String> numsLine5;
 
     public static void main(String[] argv) {
 
-        BufferedReader inputReader = new BufferedReader(new InputStreamReader(System.in));
-        try {
-            String inputLine = inputReader.readLine();
-            String[] input = inputLine.split(" ");
-            size = Integer.parseInt(input[0]);
-            nums = input[1];
-            StringBuilder[] stringBuilders = new StringBuilder[5];
-            for (int initStringBuilder = 0; initStringBuilder < 5; initStringBuilder++)
-                stringBuilders[initStringBuilder] = new StringBuilder();
-            for (numsCount = 0; numsCount < nums.length(); numsCount++) {
-                switch (nums.charAt(numsCount)) {
-                    case '0':
-                        reFormat(0, stringBuilders);
-                        break;
-                    case '1':
-                        reFormat(1, stringBuilders);
-                        break;
-                    case '2':
-                        reFormat(2, stringBuilders);
-                        break;
-                    case '3':
-                        reFormat(3, stringBuilders);
-                        break;
-                    case '4':
-                        reFormat(4, stringBuilders);
-                        break;
-                    case '5':
-                        reFormat(5, stringBuilders);
-                        break;
-                    case '6':
-                        reFormat(6, stringBuilders);
-                        break;
-                    case '7':
-                        reFormat(7, stringBuilders);
-                        break;
-                    case '8':
-                        reFormat(8, stringBuilders);
-                        break;
-                    case '9':
-                        reFormat(9, stringBuilders);
-                        break;
+        while (size != 0 && nums.charAt(0) != '0') {
+
+            //初始的表 未依size重建
+            numsLine1 = Arrays.asList(" - ", "   ", " - ", " - ", "   ", " - ", " - ", " - ", " - ", " - ");
+            numsLine2 = Arrays.asList("| |", "  |", "  |", "  |", "| |", "|  ", "|  ", "  |", "| |", "| |");
+            numsLine3 = Arrays.asList("   ", "   ", " - ", " - ", " - ", " - ", " - ", "   ", " - ", " - ");
+            numsLine4 = Arrays.asList("| |", "  |", "|  ", "  |", "  |", "  |", "| |", "  |", "| |", "  |");
+            numsLine5 = Arrays.asList(" - ", "   ", " - ", " - ", "   ", " - ", " - ", "   ", " - ", " - ");
+
+            // 輸入
+            BufferedReader inputReader = new BufferedReader(new InputStreamReader(System.in));
+            try {
+                String inputLine = inputReader.readLine();
+                String[] input = inputLine.split(" ");
+                size = Integer.parseInt(input[0]);
+                nums = input[1];
+
+                //0 0 中斷
+                if (size == 0 && nums.charAt(0) == '0')
+                    System.exit(0);
+
+                //建表用
+                StringBuilder[] stringBuilders = new StringBuilder[5];
+                for (int initStringBuilder = 0; initStringBuilder < 5; initStringBuilder++)
+                    stringBuilders[initStringBuilder] = new StringBuilder();
+
+                //建表
+                reFormat();
+
+                //找到要放入那些數字
+                for (numsCount = 0; numsCount < nums.length(); numsCount++) {
+                    switch (nums.charAt(numsCount)) {
+                        case '0':
+                            getNum(0, stringBuilders);
+                            break;
+                        case '1':
+                            getNum(1, stringBuilders);
+                            break;
+                        case '2':
+                            getNum(2, stringBuilders);
+                            break;
+                        case '3':
+                            getNum(3, stringBuilders);
+                            break;
+                        case '4':
+                            getNum(4, stringBuilders);
+                            break;
+                        case '5':
+                            getNum(5, stringBuilders);
+                            break;
+                        case '6':
+                            getNum(6, stringBuilders);
+                            break;
+                        case '7':
+                            getNum(7, stringBuilders);
+                            break;
+                        case '8':
+                            getNum(8, stringBuilders);
+                            break;
+                        case '9':
+                            getNum(9, stringBuilders);
+                            break;
+                    }
                 }
+
+                //輸出結果
+                System.out.println(stringBuilders[0].toString());
+                for (int printSize = 0; printSize < size; printSize++)
+                    System.out.println(stringBuilders[1].toString());
+                System.out.println(stringBuilders[2].toString());
+                for (int printSize = 0; printSize < size; printSize++)
+                    System.out.println(stringBuilders[3].toString());
+                System.out.println(stringBuilders[4].toString());
+
+            } catch (IOException e) {
+                e.printStackTrace();
             }
-            for (StringBuilder stringBuilder : stringBuilders)
-                System.out.println(stringBuilder.toString());
-        } catch (IOException e) {
-            e.printStackTrace();
         }
     }
 
 
-    static void reFormat(int id, StringBuilder[] stringBuilders) {
+    static void reFormat() {
+        StringBuilder newVerticalSize = new StringBuilder();
+        StringBuilder newSpaceSize = new StringBuilder();
 
-
-        if (numsCount == 0 && id != 1) {
-            stringBuilders[0].append(" ");
-            stringBuilders[2].append(" ");
-            stringBuilders[4].append(" ");
+        for (int newSize = 0; newSize < size; newSize++) {
+            newVerticalSize.append("-");
+            newSpaceSize.append(" ");
         }
 
-        if (numsCount > 0)
-            if (nums.charAt(numsCount) == '1') {
-                stringBuilders[0].append(" ");
-                stringBuilders[2].append(" ");
-                stringBuilders[4].append(" ");
-            }
+        for (int reset = 0; reset < numsLine1.size(); reset++) {
 
-        for (int reFormat1 = 0; reFormat1 < numsLine1.get(id).length(); reFormat1++) {
-            for (int check1 = 0; check1 < size; check1++) {
-                if (numsLine1.get(id).charAt(reFormat1) == vertical)
-                    stringBuilders[0].append(vertical);
-                if (numsLine3.get(id).charAt(reFormat1) == vertical)
-                    stringBuilders[2].append(vertical);
-                if (numsLine5.get(id).charAt(reFormat1) == vertical)
-                    stringBuilders[4].append(vertical);
-            }
+            numsLine1.set(reset, numsLine1.get(reset).replace("-", newVerticalSize.toString()));
+            numsLine1.set(reset, numsLine1.get(reset).replace("   ", "  " + newSpaceSize.toString()) + " ");
+
+            numsLine3.set(reset, numsLine3.get(reset).replace("-", newVerticalSize.toString()));
+            numsLine3.set(reset, numsLine3.get(reset).replace("   ", "  " + newSpaceSize.toString()) + " ");
+
+            numsLine5.set(reset, numsLine5.get(reset).replace("-", newVerticalSize.toString()));
+            numsLine5.set(reset, numsLine5.get(reset).replace("   ", "  " + newSpaceSize.toString()) + " ");
         }
 
-        for (int check1 = 0; check1 < size; check1++) {
-                stringBuilders[0].append(space);
-                stringBuilders[2].append(space);
-                stringBuilders[4].append(space);
+        for (int reset = 0; reset < numsLine2.size(); reset++) {
+            if (numsLine2.get(reset).equals("  |"))
+                numsLine2.set(reset, numsLine2.get(reset).replace("  |", newSpaceSize.toString()) + " | ");
+            if (numsLine2.get(reset).equals("|  "))
+                numsLine2.set(reset, numsLine2.get(reset).replace("|  ", "| " + newSpaceSize.toString() + " "));
+            if (numsLine2.get(reset).equals("| |"))
+                numsLine2.set(reset, numsLine2.get(reset).replace("| |", "|" + newSpaceSize.toString()) + "| ");
+
+            if (numsLine4.get(reset).equals("  |"))
+                numsLine4.set(reset, numsLine4.get(reset).replace("  |", newSpaceSize.toString()) + " | ");
+            if (numsLine4.get(reset).equals("|  "))
+                numsLine4.set(reset, numsLine4.get(reset).replace("|  ", "| " + newSpaceSize.toString()) + " ");
+            if (numsLine4.get(reset).equals("| |"))
+                numsLine4.set(reset, numsLine4.get(reset).replace("| |", "|" + newSpaceSize.toString()) + "| ");
         }
+    }
+
+    static void getNum(int id, StringBuilder[] stringBuilders) {
+        stringBuilders[0].append(numsLine1.get(id));
+        stringBuilders[1].append(numsLine2.get(id));
+        stringBuilders[2].append(numsLine3.get(id));
+        stringBuilders[3].append(numsLine4.get(id));
+        stringBuilders[4].append(numsLine5.get(id));
     }
 }
