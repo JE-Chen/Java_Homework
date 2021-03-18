@@ -1,4 +1,4 @@
-package Algorithm;
+package Algorithm.Sort;
 
 import java.util.Arrays;
 import java.util.List;
@@ -37,7 +37,7 @@ final class SortUtils {
     }
 
     /**
-     * @param toPrint
+     * @param toPrint the array we want to print
      */
     static void print(List<?> toPrint) {
         for (Object object : toPrint){
@@ -47,7 +47,7 @@ final class SortUtils {
     }
 
     /**
-     * @param toPrint
+     * @param toPrint the array we want to print
      */
     static void print(Object[] toPrint) {
         System.out.println(Arrays.toString(toPrint));

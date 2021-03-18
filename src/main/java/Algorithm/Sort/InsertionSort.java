@@ -1,12 +1,11 @@
-package Algorithm;
+package Algorithm.Sort;
 
-import static Algorithm.SortUtils.*;
+import static Algorithm.Sort.SortUtils.*;
 
 public class InsertionSort implements SortAlgorithm {
     /**
-     * @param unsorted
-     * @param <T>
-     * @return
+     * @param unsorted the array we want to sort
+     * @return sorted array
      */
     @Override
     public <T extends Comparable<T>> T[] sort(T[] unsorted) {
