@@ -6,7 +6,7 @@ import java.util.List;
 final class SortUtils {
 
     /**
-     * @param array  swap array
+     * @param array  the array which element we want to swap
      * @param index1 first element
      * @param index2 second element
      * @return true always
@@ -21,12 +21,24 @@ final class SortUtils {
     /**
      * @param first first element
      * @param second second element
-     * @return which one less
+     * @return true if the first element is less than the second element
      */
     static <T extends Comparable<T>> boolean less(T first, T second) {
         return first.compareTo(second) < 0;
     }
 
+    /**
+     * @param first first element
+     * @param second second element
+     * @return true if the first element is more than the second element
+     */
+    static <T extends Comparable<T>> boolean more(T first, T second) {
+        return first.compareTo(second) > 0;
+    }
+
+    /**
+     * @param toPrint
+     */
     static void print(List<?> toPrint) {
         for (Object object : toPrint){
             System.out.print(object + " ");
@@ -34,6 +46,9 @@ final class SortUtils {
         System.out.println();
     }
 
+    /**
+     * @param toPrint
+     */
     static void print(Object[] toPrint) {
         System.out.println(Arrays.toString(toPrint));
     }
