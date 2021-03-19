@@ -1,7 +1,5 @@
 package SoftwareEngineering.Junit;
 
-import org.junit.Test;
-
 import java.text.NumberFormat;
 
 /**
@@ -9,8 +7,8 @@ import java.text.NumberFormat;
  */
 public class Account {
 
-    private NumberFormat fmt = NumberFormat.getCurrencyInstance();
     private final float kInterestRate = 0.045f;
+    private NumberFormat fmt = NumberFormat.getCurrencyInstance();
     private String name;
     private long acctNumber;
     private float balance;
@@ -50,7 +48,7 @@ public class Account {
      * Withdraw the specified amount from the account,unless amount is negative, fee is negative, or amount exceeds current balance.
      *
      * @param amount value to be deducted from the balance
-     * @param fee the transaction fee debited from the account
+     * @param fee    the transaction fee debited from the account
      * @return true if transaction was successful, false otherwise;
      */
 

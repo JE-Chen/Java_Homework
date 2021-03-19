@@ -1,6 +1,6 @@
 package DSTest.test1.interfaceimplements;
 
-public class Another implements Human{
+public class Another implements Human {
 
     @Override
     public void printType() {

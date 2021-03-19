@@ -5,7 +5,7 @@ import java.util.LinkedList;
 
 public class finalist {
 
-    public static void main(String[] argv){
+    public static void main(String[] argv) {
         LinkedList<String> q = new LinkedList<>();
         q.addLast("a");
         q.addLast("b");

@@ -19,7 +19,7 @@ final class SortUtils {
     }
 
     /**
-     * @param first first element
+     * @param first  first element
      * @param second second element
      * @return true if the first element is less than the second element
      */
@@ -28,7 +28,7 @@ final class SortUtils {
     }
 
     /**
-     * @param first first element
+     * @param first  first element
      * @param second second element
      * @return true if the first element is more than the second element
      */
@@ -40,7 +40,7 @@ final class SortUtils {
      * @param toPrint the array we want to print
      */
     static void print(List<?> toPrint) {
-        for (Object object : toPrint){
+        for (Object object : toPrint) {
             System.out.print(object + " ");
         }
         System.out.println();
@@ -51,6 +51,7 @@ final class SortUtils {
      */
     static void print(Object[] toPrint) {
         System.out.println(Arrays.toString(toPrint));
+        System.out.println();
     }
 
 }

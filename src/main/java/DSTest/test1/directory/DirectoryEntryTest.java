@@ -31,10 +31,10 @@ public class DirectoryEntryTest {
             if (this == o) return true;
             if (o == null || getClass() != o.getClass()) return false;
             DirectoryEntry that = (DirectoryEntry) o;
-            if(this.number.equals(""))
-                return Objects.equals(name,that.name);
-            if(this.name.equals(""))
-                return Objects.equals(number,that.number);
+            if (this.number.equals(""))
+                return Objects.equals(name, that.name);
+            if (this.name.equals(""))
+                return Objects.equals(number, that.number);
             return Objects.equals(name, that.name) &&
                     Objects.equals(number, that.number);
         }

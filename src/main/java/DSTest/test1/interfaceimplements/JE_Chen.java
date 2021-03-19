@@ -1,6 +1,6 @@
 package DSTest.test1.interfaceimplements;
 
-public class JE_Chen implements Human{
+public class JE_Chen implements Human {
 
     public static void main(String[] argv) {
         Human human = new JE_Chen();
