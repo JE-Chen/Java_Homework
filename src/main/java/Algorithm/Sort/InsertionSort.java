@@ -8,7 +8,7 @@ public class InsertionSort implements SortAlgorithm {
 
         InsertionSort sort = new InsertionSort();
 
-        Integer[] integers = {3, 555, 4, 8, 6, 33, 22, 115, 3,777,55,66,123};
+        Integer[] integers = {3, 555, 4, 8, 6, 33, 354, 453, 3, 777, 55, 66, 123, 5, 65, 4, 654, 654, 65, 789, 51, 879, 16, 54, 89, 7, 8941, 4, 132, 869, 4, 65, 3, 64};
         sort.sort(integers);
         print(integers);
 

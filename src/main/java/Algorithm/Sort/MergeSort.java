@@ -58,7 +58,7 @@ public class MergeSort implements SortAlgorithm {
 
         MergeSort mergeSort = new MergeSort();
 
-        Integer[] integers = {3, 555, 4, 8, 6, 33, 22, 115, 3,777,55,66,123};
+        Integer[] integers = {3, 555, 4, 8, 6, 33, 22, 115, 3, 777, 55, 66, 123, 5, 65, 4, 654, 654, 65, 46, 51, 65, 16, 54, 89, 7, 8941, 4, 132, 869, 4, 65, 3, 64};
         mergeSort.sort(integers);
         print(integers);
 
