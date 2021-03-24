@@ -1,17 +1,18 @@
 package Algorithm.Sort;
 
 import static Algorithm.Sort.SortUtils.print;
+import static Algorithm.Sort.SortUtils.printStudentData;
 
 public class MergeSort implements SortAlgorithm {
 
-    static int compareCount = 0, swapCount = 0;
+    private int compareCount = 0, swapCount = 0;
 
     /**
      * @param array the array we want to sort
      * @param left  array's first index
      * @param right array's last index
      */
-    private static <T extends Comparable<T>> void mergeSort(T[] array, int left, int right) {
+    private <T extends Comparable<T>> void mergeSort(T[] array, int left, int right) {
         if (left < right) {
             int middle = left + (right - left) / 2;
             mergeSort(array, left, middle);
@@ -26,7 +27,7 @@ public class MergeSort implements SortAlgorithm {
      * @param middle middle index of the array
      * @param right  last index of the array
      */
-    private static <T extends Comparable<T>> void merge(T[] array, int left, int middle, int right) {
+    private <T extends Comparable<T>> void merge(T[] array, int left, int middle, int right) {
         int length = right - left + 1;
         T[] temp = (T[]) new Comparable[length];
         int i = left;
@@ -62,9 +63,20 @@ public class MergeSort implements SortAlgorithm {
         mergeSort.sort(integers);
         print(integers);
 
+        Integer[] sortedIntegers = {5, 4, 3};
+        mergeSort.sort(sortedIntegers);
+        print(sortedIntegers);
+
         Character[] characters = {'e', 'k', 'e', 'u', 'n'};
         mergeSort.sort(characters);
         print(characters);
+
+        StudentData[] studentData = {
+                new StudentData(97502, "DS", 79),
+                new StudentData(97501, "DS", 76),
+                new StudentData(97523, "DS", 49)};
+        mergeSort.sort(studentData);
+        printStudentData(studentData);
     }
 
     /**
@@ -76,9 +88,12 @@ public class MergeSort implements SortAlgorithm {
         mergeSort(unsorted, 0, unsorted.length - 1);
         System.out.println("交換次數: " + swapCount);
         System.out.println("比較次數: " + compareCount);
-        swapCount = 0;
-        compareCount = 0;
         return unsorted;
+    }
+
+    @Override
+    public String getSortData() {
+        return String.format("使用MergeSort Sort排序，系統完成排序共比較%d次，交換元素%d次", compareCount, swapCount);
     }
 
 }

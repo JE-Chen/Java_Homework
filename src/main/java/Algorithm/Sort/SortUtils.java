@@ -1,9 +1,10 @@
 package Algorithm.Sort;
 
+import javax.swing.*;
 import java.util.Arrays;
 import java.util.List;
 
-final class SortUtils {
+public final class SortUtils {
 
     /**
      * @param array  the array which element we want to swap
@@ -52,6 +53,23 @@ final class SortUtils {
     static void print(Object[] toPrint) {
         System.out.println(Arrays.toString(toPrint));
         System.out.println();
+    }
+
+    /**
+     * @param toPrint the StudentData we want to print
+     */
+    static void printStudentData(StudentData[] toPrint) {
+        for (StudentData studentData : toPrint) {
+            System.out.println(studentData.getData());
+        }
+        System.out.println();
+    }
+
+    public static void printStudentData(StudentData[] toPrint, JTextArea jTextArea) {
+        for (StudentData studentData : toPrint) {
+            jTextArea.append(studentData.getData() + "\n");
+        }
+        jTextArea.append("\n");
     }
 
 }
