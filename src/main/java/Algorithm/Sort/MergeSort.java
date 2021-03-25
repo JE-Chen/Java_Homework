@@ -72,9 +72,9 @@ public class MergeSort implements SortAlgorithm {
         print(characters);
 
         StudentData[] studentData = {
-                new StudentData(97502, "DS", 79),
-                new StudentData(97501, "DS", 76),
-                new StudentData(97523, "DS", 49)};
+                new StudentData(97502, "DS", 79, "DM", 76, "LA", 63, "DS"),
+                new StudentData(97501, "DS", 76, "DM", 79, "LA", 98, "DS"),
+                new StudentData(97523, "DS", 49, "DM", 49, "LA", 78, "DS")};
         mergeSort.sort(studentData);
         printStudentData(studentData);
     }
@@ -86,14 +86,21 @@ public class MergeSort implements SortAlgorithm {
     @Override
     public <T extends Comparable<T>> T[] sort(T[] unsorted) {
         mergeSort(unsorted, 0, unsorted.length - 1);
-        System.out.println("交換次數: " + swapCount);
         System.out.println("比較次數: " + compareCount);
+        System.out.println("交換次數: " + swapCount);
+        /* when exec this class
+        swapCount = 0;
+        compareCount = 0;
+         */
         return unsorted;
     }
 
     @Override
     public String getSortData() {
-        return String.format("使用MergeSort Sort排序，系統完成排序共比較%d次，交換元素%d次", compareCount, swapCount);
+        String sortData = String.format("使用MergeSort Sort排序，系統完成排序共比較%d次，交換元素%d次", compareCount, swapCount);
+        swapCount = 0;
+        compareCount = 0;
+        return sortData;
     }
 
 }

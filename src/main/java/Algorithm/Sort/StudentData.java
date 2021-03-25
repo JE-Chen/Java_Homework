@@ -1,8 +1,5 @@
 package Algorithm.Sort;
 
-import java.util.ArrayList;
-import java.util.Collections;
-
 public class StudentData implements Comparable<StudentData> {
 
     private int studentNumber;
@@ -12,11 +9,21 @@ public class StudentData implements Comparable<StudentData> {
     private int score2;
     private String subject3;
     private int score3;
+    private String sortUseType;
 
-    public StudentData(int studentNumber, String subject1, int score1) {
+    public StudentData(int studentNumber,
+                       String subject1, int score1,
+                       String subject2, int score2,
+                       String subject3, int score3,
+                       String sortUseType) {
         this.studentNumber = studentNumber;
         this.subject1 = subject1;
         this.score1 = score1;
+        this.subject2 = subject2;
+        this.score2 = score2;
+        this.subject3 = subject3;
+        this.score3 = score3;
+        this.sortUseType=sortUseType;
     }
 
     public int getScore1() {
@@ -32,22 +39,25 @@ public class StudentData implements Comparable<StudentData> {
     }
 
     public String getData() {
-        return String.format("%d %s %d", studentNumber, subject1, score1);
+        return String.format("%d %s %d %s %d %s %d sort using : %s",
+                studentNumber,
+                subject1, score1,
+                subject2,score2,
+                subject3,score3,
+                sortUseType);
     }
 
     @Override
     public int compareTo(StudentData studentData) {
+        switch (this.sortUseType) {
+            case "DS":
+                return this.getScore1() - studentData.getScore1();
+            case "DM":
+                return this.getScore2() - studentData.getScore2();
+            case "LA":
+                return this.getScore3() - studentData.getScore3();
+        }
         return this.getScore1() - studentData.getScore1();
     }
 
-    public static void main(String[] argv) {
-        ArrayList<StudentData> studentDataArrayList = new ArrayList<>();
-        studentDataArrayList.add(new StudentData(1, "DS", 30));
-        studentDataArrayList.add(new StudentData(2, "DS", 40));
-        studentDataArrayList.add(new StudentData(3, "DS", 55));
-        Collections.sort(studentDataArrayList);
-        for (StudentData studentData : studentDataArrayList) {
-            System.out.println(studentData.getScore1());
-        }
-    }
 }

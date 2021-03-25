@@ -27,9 +27,9 @@ public class InsertionSort implements SortAlgorithm {
         print(floats);
 
         StudentData[] studentData = {
-                new StudentData(97502, "DS", 79),
-                new StudentData(97501, "DS", 76),
-                new StudentData(97523, "DS", 49)};
+                new StudentData(97502, "DS", 79, "DM", 76, "LA", 63, "DS"),
+                new StudentData(97501, "DS", 76, "DM", 79, "LA", 98, "DS"),
+                new StudentData(97523, "DS", 49, "DM", 49, "LA", 78, "DS")};
         insertionSort.sort(studentData);
         printStudentData(studentData);
     }
@@ -45,21 +45,28 @@ public class InsertionSort implements SortAlgorithm {
             T key = unsorted[index];
             int forward = index - 1;
             while (forward >= 0 && more(key, unsorted[forward])) {
-                this.swapCount++;
-                this.compareCount++;
+                swapCount++;
+                compareCount++;
                 unsorted[forward + 1] = unsorted[forward];
                 forward--;
             }
-            this.compareCount++;
+            compareCount++;
             unsorted[forward + 1] = key;
         }
-        System.out.println("交換次數: " + this.swapCount);
-        System.out.println("比較次數: " + this.compareCount);
+        System.out.println("比較次數: " + compareCount);
+        System.out.println("交換次數: " + swapCount);
+        /* when exec this class
+        swapCount = 0;
+        compareCount = 0;
+         */
         return unsorted;
     }
 
     @Override
     public String getSortData() {
-        return String.format("使用Insertion Sort排序，系統完成排序共比較%d次，交換元素%d次", this.compareCount, this.swapCount);
+        String sortData = String.format("使用Insertion Sort排序，系統完成排序共比較%d次，交換元素%d次", compareCount, swapCount);
+        swapCount = 0;
+        compareCount = 0;
+        return sortData;
     }
 }
