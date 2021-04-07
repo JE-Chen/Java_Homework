@@ -71,11 +71,12 @@ public final class SortUtils {
         jTextArea.append("\n");
     }
 
-    public static <K, V extends Comparable<? super V>> Map<K, V> sortByValue(Map<K, V> map) {
-        List<Map.Entry<K, V>> list = new ArrayList<>(map.entrySet());
-        list.sort(Map.Entry.comparingByValue(Comparator.reverseOrder()));
+
+    public static <K, V extends Comparable<? super V>> Map<K, V> sortMapByValue(Map<K, V> unSortMap) {
+        List<Map.Entry<K, V>> entryArrayList = new ArrayList<>(unSortMap.entrySet());
+        entryArrayList.sort(Map.Entry.comparingByValue(Comparator.reverseOrder()));
         Map<K, V> result = new LinkedHashMap<>();
-        for (Map.Entry<K, V> entry : list) {
+        for (Map.Entry<K, V> entry : entryArrayList) {
             result.put(entry.getKey(), entry.getValue());
         }
         return result;
