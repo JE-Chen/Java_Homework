@@ -71,25 +71,14 @@ public final class SortUtils {
         jTextArea.append("\n");
     }
 
-    /**
-     * @param map the map we want to sort
-     * @param <K> the map's key
-     * @param <V> the map's value
-     * @return sorted map
-     */
-    public static <K, V extends Comparable<? super V>> TreeMap<K, V> entriesSortedByValues(Map<K, V> map) {
-        SortedSet<Map.Entry<K, V>> sortedEntries = new TreeSet<Map.Entry<K, V>>(
-                new Comparator<Map.Entry<K, V>>() {
-                    @Override
-                    public int compare(Map.Entry<K, V> e1, Map.Entry<K, V> e2) {
-                        return e2.getValue().compareTo(e1.getValue());
-                    }
-                }
-        );
-        TreeMap<K, V> sortedMap = new TreeMap<K, V>();
-        for(Map.Entry<K, V> sortedEntry : sortedEntries)
-            sortedMap.put(sortedEntry.getKey(),sortedEntry.getValue());
-        return sortedMap;
+    public static <K, V extends Comparable<? super V>> Map<K, V> sortByValue(Map<K, V> map) {
+        List<Map.Entry<K, V>> list = new ArrayList<>(map.entrySet());
+        list.sort(Map.Entry.comparingByValue(Comparator.reverseOrder()));
+        Map<K, V> result = new LinkedHashMap<>();
+        for (Map.Entry<K, V> entry : list) {
+            result.put(entry.getKey(), entry.getValue());
+        }
+        return result;
     }
 
 }
