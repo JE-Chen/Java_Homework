@@ -7,6 +7,30 @@ public class MergeSort implements SortAlgorithm {
 
     private int compareCount = 0, swapCount = 0;
 
+    public static void main(String[] argv) {
+
+        MergeSort mergeSort = new MergeSort();
+
+        Integer[] integers = {3, 555, 4, 8, 6, 33, 22, 115, 3, 777, 55, 66, 123, 5, 65, 4, 654, 654, 65, 46, 51, 65, 16, 54, 89, 7, 8941, 4, 132, 869, 4, 65, 3, 64};
+        mergeSort.sort(integers);
+        print(integers);
+
+        Integer[] sortedIntegers = {5, 4, 3};
+        mergeSort.sort(sortedIntegers);
+        print(sortedIntegers);
+
+        Character[] characters = {'e', 'k', 'e', 'u', 'n'};
+        mergeSort.sort(characters);
+        print(characters);
+
+        StudentData[] studentData = {
+                new StudentData(97502, "DS", 79, "DM", 76, "LA", 63, "DS"),
+                new StudentData(97501, "DS", 76, "DM", 79, "LA", 98, "DS"),
+                new StudentData(97523, "DS", 49, "DM", 49, "LA", 78, "DS")};
+        mergeSort.sort(studentData);
+        printStudentData(studentData);
+    }
+
     /**
      * @param array the array we want to sort
      * @param left  array's first index
@@ -53,30 +77,6 @@ public class MergeSort implements SortAlgorithm {
             swapCount++;
         }
         System.arraycopy(temp, 0, array, left, length);
-    }
-
-    public static void main(String[] argv) {
-
-        MergeSort mergeSort = new MergeSort();
-
-        Integer[] integers = {3, 555, 4, 8, 6, 33, 22, 115, 3, 777, 55, 66, 123, 5, 65, 4, 654, 654, 65, 46, 51, 65, 16, 54, 89, 7, 8941, 4, 132, 869, 4, 65, 3, 64};
-        mergeSort.sort(integers);
-        print(integers);
-
-        Integer[] sortedIntegers = {5, 4, 3};
-        mergeSort.sort(sortedIntegers);
-        print(sortedIntegers);
-
-        Character[] characters = {'e', 'k', 'e', 'u', 'n'};
-        mergeSort.sort(characters);
-        print(characters);
-
-        StudentData[] studentData = {
-                new StudentData(97502, "DS", 79, "DM", 76, "LA", 63, "DS"),
-                new StudentData(97501, "DS", 76, "DM", 79, "LA", 98, "DS"),
-                new StudentData(97523, "DS", 49, "DM", 49, "LA", 78, "DS")};
-        mergeSort.sort(studentData);
-        printStudentData(studentData);
     }
 
     /**

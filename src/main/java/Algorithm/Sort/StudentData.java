@@ -23,7 +23,7 @@ public class StudentData implements Comparable<StudentData> {
         this.score2 = score2;
         this.subject3 = subject3;
         this.score3 = score3;
-        this.sortUseType=sortUseType;
+        this.sortUseType = sortUseType;
     }
 
     public int getScore1() {
@@ -42,8 +42,8 @@ public class StudentData implements Comparable<StudentData> {
         return String.format("%d %s %d %s %d %s %d sort using : %s",
                 studentNumber,
                 subject1, score1,
-                subject2,score2,
-                subject3,score3,
+                subject2, score2,
+                subject3, score3,
                 sortUseType);
     }
 

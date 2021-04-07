@@ -3,27 +3,27 @@
 package networkingProgramming.thread.demo2;
 
 public class Client3 {
-	public static void main(String[] args) throws InterruptedException {
-		ThreadB t = new ThreadB();
-		t.start();
-		synchronized (t) {
-			System.out.println("Client B is waiting for t to complete ...");
-			t.wait();
-			System.out.println("Total is: " + t.total);
-		}
-	}
+    public static void main(String[] args) throws InterruptedException {
+        ThreadB t = new ThreadB();
+        t.start();
+        synchronized (t) {
+            System.out.println("Client B is waiting for t to complete ...");
+            t.wait();
+            System.out.println("Total is: " + t.total);
+        }
+    }
 }
 
 class ThreadB extends Thread {
-	int total;
+    int total;
 
-	public void run() {
-		synchronized (this) {
-			for (int i = 0; i <= 10; i++) {
-				total += i;
-				System.out.println("i = " + i);
-			}
-			notify();
-		}
-	}
+    public void run() {
+        synchronized (this) {
+            for (int i = 0; i <= 10; i++) {
+                total += i;
+                System.out.println("i = " + i);
+            }
+            notify();
+        }
+    }
 }

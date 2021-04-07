@@ -11,7 +11,7 @@ public class GuiFather extends JFrame {
     public GuiFather(String windowName) {
         this.windowName = windowName;
         setTitle(windowName);
-        setSize(800,800);
+        setSize(800, 800);
         closeEvent();
     }
 
