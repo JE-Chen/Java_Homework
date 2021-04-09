@@ -1,15 +1,17 @@
 package Algorithm;
 
-import java.util.Iterator;
+import java.util.HashMap;
 import java.util.Map;
 import java.util.TreeMap;
 
 import static Algorithm.Sort.SortUtils.sortMapByValue;
 
 
+
 public class TreemapTest {
 
     public static void main(String[] argv) {
+        HashMap<String,TreeMap<String,Integer>> treeMapHashMap = new HashMap<>();
         TreeMap<String, Integer> test = new TreeMap<>();
         test.put("test", 990);
         test.put("test1", 888);
@@ -20,7 +22,6 @@ public class TreemapTest {
             System.out.print(stringIntegerEntry.getKey() + " ");
             System.out.println(stringIntegerEntry.getValue());
         }
-
     }
 }
 

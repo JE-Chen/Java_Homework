@@ -57,10 +57,6 @@ public class SortGUI extends GuiFather {
         switch (selectString) {
 
             case "1":
-                studentData = new StudentData[]{
-                        new StudentData(97502, "DS", 79, "DM", 76, "LA", 63, type),
-                        new StudentData(97501, "DS", 76, "DM", 79, "LA", 98, type),
-                        new StudentData(97523, "DS", 49, "DM", 49, "LA", 78, type)};
                 InsertionSort insertionSort = new InsertionSort();
                 insertionSort.sort(studentData);
                 printStudentData(studentData, sortOutput);
@@ -68,10 +64,6 @@ public class SortGUI extends GuiFather {
                 break;
 
             case "2":
-                studentData = new StudentData[]{
-                        new StudentData(97502, "DS", 79, "DM", 76, "LA", 63, type),
-                        new StudentData(97501, "DS", 76, "DM", 79, "LA", 98, type),
-                        new StudentData(97523, "DS", 49, "DM", 49, "LA", 78, type)};
                 MergeSort mergeSort = new MergeSort();
                 mergeSort.sort(studentData);
                 printStudentData(studentData, sortOutput);

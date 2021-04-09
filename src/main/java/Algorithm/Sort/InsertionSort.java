@@ -26,12 +26,6 @@ public class InsertionSort implements SortAlgorithm {
         insertionSort.sort(floats);
         print(floats);
 
-        StudentData[] studentData = {
-                new StudentData(97502, "DS", 79, "DM", 76, "LA", 63, "DS"),
-                new StudentData(97501, "DS", 76, "DM", 79, "LA", 98, "DS"),
-                new StudentData(97523, "DS", 49, "DM", 49, "LA", 78, "DS")};
-        insertionSort.sort(studentData);
-        printStudentData(studentData);
     }
 
 

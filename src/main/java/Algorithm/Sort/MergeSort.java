@@ -1,7 +1,6 @@
 package Algorithm.Sort;
 
 import static Algorithm.Sort.SortUtils.print;
-import static Algorithm.Sort.SortUtils.printStudentData;
 
 public class MergeSort implements SortAlgorithm {
 
@@ -23,12 +22,6 @@ public class MergeSort implements SortAlgorithm {
         mergeSort.sort(characters);
         print(characters);
 
-        StudentData[] studentData = {
-                new StudentData(97502, "DS", 79, "DM", 76, "LA", 63, "DS"),
-                new StudentData(97501, "DS", 76, "DM", 79, "LA", 98, "DS"),
-                new StudentData(97523, "DS", 49, "DM", 49, "LA", 78, "DS")};
-        mergeSort.sort(studentData);
-        printStudentData(studentData);
     }
 
     /**
@@ -51,6 +44,7 @@ public class MergeSort implements SortAlgorithm {
      * @param middle middle index of the array
      * @param right  last index of the array
      */
+    @SuppressWarnings("unchecked")
     private <T extends Comparable<T>> void merge(T[] array, int left, int middle, int right) {
         int length = right - left + 1;
         T[] temp = (T[]) new Comparable[length];

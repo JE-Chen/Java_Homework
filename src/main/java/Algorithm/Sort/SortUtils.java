@@ -71,7 +71,12 @@ public final class SortUtils {
         jTextArea.append("\n");
     }
 
-
+    /**
+     * @param unSortMap the map we want to sort
+     * @param <K> generic type key
+     * @param <V> generic type value
+     * @return sorted map
+     */
     public static <K, V extends Comparable<? super V>> Map<K, V> sortMapByValue(Map<K, V> unSortMap) {
         List<Map.Entry<K, V>> entryArrayList = new ArrayList<>(unSortMap.entrySet());
         entryArrayList.sort(Map.Entry.comparingByValue(Comparator.reverseOrder()));
@@ -81,5 +86,4 @@ public final class SortUtils {
         }
         return result;
     }
-
 }
