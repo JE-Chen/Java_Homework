@@ -54,18 +54,23 @@ public final class SortUtils {
         System.out.println();
     }
 
+    public static void print(int[] array, int arrayLength) {
+        for (int i = 0; i < arrayLength; i++)
+            System.out.print(array[i] + " ");
+    }
+
     /**
      * @param toPrint the StudentData we want to print
      */
-    static void printStudentData(StudentData[] toPrint) {
-        for (StudentData studentData : toPrint) {
+    static void printStudentData(StudentData<String, TreeMap<String, Integer>, String, Integer>[] toPrint) {
+        for (StudentData<String, TreeMap<String, Integer>, String, Integer> studentData : toPrint) {
             System.out.println(studentData.getData());
         }
         System.out.println();
     }
 
-    public static void printStudentData(StudentData[] toPrint, JTextArea jTextArea) {
-        for (StudentData studentData : toPrint) {
+    public static void printStudentData(StudentData<String, TreeMap<String, Integer>, String, Integer>[] toPrint, JTextArea jTextArea) {
+        for (StudentData<String, TreeMap<String, Integer>, String, Integer> studentData : toPrint) {
             jTextArea.append(studentData.getData() + "\n");
         }
         jTextArea.append("\n");
@@ -73,15 +78,15 @@ public final class SortUtils {
 
     /**
      * @param unSortMap the map we want to sort
-     * @param <K> generic type key
-     * @param <V> generic type value
+     * @param <Key>     generic type key
+     * @param <Value>   generic type value
      * @return sorted map
      */
-    public static <K, V extends Comparable<? super V>> Map<K, V> sortMapByValue(Map<K, V> unSortMap) {
-        List<Map.Entry<K, V>> entryArrayList = new ArrayList<>(unSortMap.entrySet());
+    public static <Key, Value extends Comparable<? super Value>> Map<Key, Value> sortMapByValue(Map<Key, Value> unSortMap) {
+        List<Map.Entry<Key, Value>> entryArrayList = new ArrayList<>(unSortMap.entrySet());
         entryArrayList.sort(Map.Entry.comparingByValue(Comparator.reverseOrder()));
-        Map<K, V> result = new LinkedHashMap<>();
-        for (Map.Entry<K, V> entry : entryArrayList) {
+        Map<Key, Value> result = new LinkedHashMap<>();
+        for (Map.Entry<Key, Value> entry : entryArrayList) {
             result.put(entry.getKey(), entry.getValue());
         }
         return result;

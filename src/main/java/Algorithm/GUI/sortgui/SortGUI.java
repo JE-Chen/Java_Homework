@@ -3,6 +3,7 @@ package Algorithm.GUI.sortgui;
 import Algorithm.GUI.GuiFather;
 import Algorithm.Sort.InsertionSort;
 import Algorithm.Sort.MergeSort;
+import Algorithm.Sort.RadixSort;
 import Algorithm.Sort.StudentData;
 
 import javax.swing.*;
@@ -10,6 +11,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
+import java.util.TreeMap;
 
 import static Algorithm.Sort.SortUtils.printStudentData;
 
@@ -19,7 +21,7 @@ public class SortGUI extends GuiFather {
     private JPanel jPanel;
     private JLabel sortGUILabel;
     private JTextArea sortOutput;
-    private StudentData[] studentData;
+    private StudentData<String, TreeMap<String, Integer>, String, Integer>[] studentData;
     private String type = "";
 
     public SortGUI(String windowName) {
@@ -50,7 +52,9 @@ public class SortGUI extends GuiFather {
         sortGUILabel.setText("" +
                 "<html>請選擇排序方法：" +
                 "<br> 1.Insertion Sort" +
-                "<br> 2.Merge Sort</html>");
+                "<br> 2.Merge Sort" +
+                "<br> 3.Radix Sort" +
+                "</html>");
     }
 
     private void selectFunction(String selectString) {
@@ -58,16 +62,23 @@ public class SortGUI extends GuiFather {
 
             case "1":
                 InsertionSort insertionSort = new InsertionSort();
-                insertionSort.sort(studentData);
+                // TODO insertionSort.sort();
                 printStudentData(studentData, sortOutput);
                 sortOutput.append(insertionSort.getSortData() + "\n");
                 break;
 
             case "2":
                 MergeSort mergeSort = new MergeSort();
-                mergeSort.sort(studentData);
+                //TODO mergeSort.sort();
                 printStudentData(studentData, sortOutput);
                 sortOutput.append(mergeSort.getSortData() + "\n");
+                break;
+
+            case "3":
+                RadixSort radixSort = new RadixSort();
+                //TODO RadixSort.sort();
+                printStudentData(studentData, sortOutput);
+                sortOutput.append(radixSort.getSortData() + "\n");
                 break;
 
             case "DS":

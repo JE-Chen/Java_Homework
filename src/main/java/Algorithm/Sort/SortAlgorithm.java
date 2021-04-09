@@ -3,6 +3,7 @@ package Algorithm.Sort;
 import java.util.Arrays;
 import java.util.List;
 
+@SuppressWarnings("unchecked")
 public interface SortAlgorithm {
 
     /**

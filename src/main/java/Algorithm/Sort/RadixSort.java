@@ -2,7 +2,9 @@ package Algorithm.Sort;
 
 import java.util.Arrays;
 
-public class RadixSort {
+import static Algorithm.Sort.SortUtils.print;
+
+public class RadixSort implements SortAlgorithm {
 
     public static int getMax(int[] array, int arrayLength) {
         int maxNumber = array[0];
@@ -11,7 +13,7 @@ public class RadixSort {
                 maxNumber = array[i];
         return maxNumber;
     }
-    
+
     public static void countSort(int[] array, int arrayLength, int exp) {
         int[] outputArray = new int[arrayLength];
         int i;
@@ -31,21 +33,32 @@ public class RadixSort {
             array[i] = outputArray[i];
     }
 
-    static void print(int[] array, int arrayLength) {
-        for (int i = 0; i < arrayLength; i++)
-            System.out.print(array[i] + " ");
-    }
-
-    public static void radixSort(int[] array, int arrayLength) {
+    public static void sort(int[] array, int arrayLength, String sortType) {
         int maxNumber = getMax(array, arrayLength);
-        for (int exp = 1; maxNumber / exp > 0; exp *= 10)
-            countSort(array, arrayLength, exp);
+        switch (sortType) {
+            case "LSD":
+                for (int exp = 1; maxNumber / exp > 0; exp *= 10)
+                    countSort(array, arrayLength, exp);
+                break;
+            case "MSD":
+                break;
+        }
     }
 
     public static void main(String[] argv) {
         int[] array = {170, 45, 75, 90, 802, 24, 2, 66};
         int arrayLength = array.length;
-        radixSort(array, arrayLength);
+        sort(array, arrayLength, "LSD");
         print(array, arrayLength);
+    }
+
+    @Override
+    public <T extends Comparable<T>> T[] sort(T[] unsorted) {
+        return null;
+    }
+
+    @Override
+    public String getSortData() {
+        return "使用RadixSort排序";
     }
 }
