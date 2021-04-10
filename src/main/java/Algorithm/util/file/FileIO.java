@@ -4,10 +4,27 @@ import javax.swing.*;
 import javax.swing.filechooser.FileNameExtensionFilter;
 import java.io.*;
 
-import static Algorithm.util.file.FileUtils.removeLine;
 import static Algorithm.util.file.FileUtils.removeUsingNewFile;
 
 public class FileIO {
+
+    public static void main(String[] argv) {
+        try {
+            FileIO fileIO = new FileIO();
+            File readFile = fileIO.fileChooser();
+            String data = fileIO.readFile(readFile);
+            System.out.println(data);
+            File writeFile = fileIO.fileChooser();
+            fileIO.writeFile(writeFile,
+                    "123\n"
+                            + "456\n"
+                            + "789\n"
+                            + "877");
+            removeUsingNewFile(writeFile, "877");
+        } catch (NullPointerException | IOException nullPointerException) {
+            // Nothing just in test , but need to detect in use
+        }
+    }
 
     public File fileChooser() {
         File selectedFile = null;
@@ -36,24 +53,6 @@ public class FileIO {
         }
         bufferedReader.close();
         return readDataStringBuilder.toString();
-    }
-
-    public static void main(String[] argv) {
-        try {
-            FileIO fileIO = new FileIO();
-            File readFile = fileIO.fileChooser();
-            String data = fileIO.readFile(readFile);
-            System.out.println(data);
-            File writeFile = fileIO.fileChooser();
-            fileIO.writeFile(writeFile,
-                    "123\n"
-                            + "456\n"
-                            + "789\n"
-                            + "877");
-            removeUsingNewFile(writeFile, "877");
-        } catch (NullPointerException | IOException nullPointerException) {
-            // Nothing just in test , but need to detect in use
-        }
     }
 
 }

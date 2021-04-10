@@ -1,10 +1,13 @@
 package Algorithm.Sort;
 
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
+import java.util.TreeMap;
 
 import static Algorithm.Sort.SortUtils.print;
 
-public class RadixSort implements SortAlgorithm {
+public class RadixSort<TreeMapKey,TreeMapValue> implements SortAlgorithm{
 
     public static int getMax(int[] array, int arrayLength) {
         int maxNumber = array[0];
@@ -33,30 +36,27 @@ public class RadixSort implements SortAlgorithm {
             array[i] = outputArray[i];
     }
 
-    public static void sort(int[] array, int arrayLength, String sortType) {
+    public static void sort(int[] array, int arrayLength) {
         int maxNumber = getMax(array, arrayLength);
-        switch (sortType) {
-            case "LSD":
-                for (int exp = 1; maxNumber / exp > 0; exp *= 10)
-                    countSort(array, arrayLength, exp);
-                break;
-            case "MSD":
-                break;
-        }
+        for (int exp = 1; maxNumber / exp > 0; exp *= 10)
+            countSort(array, arrayLength, exp);
     }
+
 
     public static void main(String[] argv) {
         int[] array = {170, 45, 75, 90, 802, 24, 2, 66};
         int arrayLength = array.length;
-        sort(array, arrayLength, "LSD");
+        sort(array, arrayLength);
         print(array, arrayLength);
     }
 
     @Override
     public <T extends Comparable<T>> T[] sort(T[] unsorted) {
+        List<String> studentNumber = new ArrayList<>();
+        List<TreeMap<TreeMapKey,TreeMapValue>> studentGradeTreeMap = new ArrayList<>();
         return null;
     }
-
+    
     @Override
     public String getSortData() {
         return "使用RadixSort排序";

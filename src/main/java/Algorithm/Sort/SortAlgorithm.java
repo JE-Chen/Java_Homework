@@ -20,5 +20,6 @@ public interface SortAlgorithm {
         return Arrays.asList(sort(unsorted.toArray((T[]) new Comparable[unsorted.size()])));
     }
 
-    public String getSortData();
+    String getSortData();
+
 }

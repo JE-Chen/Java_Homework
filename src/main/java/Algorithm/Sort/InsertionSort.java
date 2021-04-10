@@ -1,9 +1,12 @@
 package Algorithm.Sort;
 
+import java.util.*;
+
 import static Algorithm.Sort.SortUtils.*;
 
 public class InsertionSort implements SortAlgorithm {
 
+    private static List<StudentData<String, TreeMap<String, Integer>, String, Integer>> studentData = new ArrayList<>();
     private int swapCount = 0, compareCount = 0;
 
     public static void main(String[] argv) {
@@ -26,6 +29,33 @@ public class InsertionSort implements SortAlgorithm {
         insertionSort.sort(floats);
         print(floats);
 
+        HashMap<String, TreeMap<String, Integer>> studentHashMap = new HashMap<>();
+        TreeMap<String, Integer> student1TreeMap = new TreeMap<>();
+        student1TreeMap.put("DS", 80);
+        student1TreeMap.put("DM", 76);
+        student1TreeMap.put("LA", 63);
+        TreeMap<String, Integer> student2TreeMap = new TreeMap<>();
+        student2TreeMap.put("DS", 53);
+        student2TreeMap.put("DM", 79);
+        student2TreeMap.put("LA", 98);
+        TreeMap<String, Integer> student3TreeMap = new TreeMap<>();
+        student3TreeMap.put("DS", 83);
+        student3TreeMap.put("DM", 49);
+        student3TreeMap.put("LA", 78);
+        TreeMap<String, Integer> student4TreeMap = new TreeMap<>();
+        student4TreeMap.put("DS", 78);
+        student4TreeMap.put("DM", 49);
+        student4TreeMap.put("LA", 78);
+        studentHashMap.put("97501", student1TreeMap);
+        studentData.add(new StudentData<>(student1TreeMap, "97501", "DS"));
+        studentHashMap.put("97502", student2TreeMap);
+        studentData.add(new StudentData<>(student2TreeMap, "97502", "DS"));
+        studentHashMap.put("97523", student3TreeMap);
+        studentData.add(new StudentData<>(student3TreeMap, "97523", "DS"));
+        studentHashMap.put("97511", student4TreeMap);
+        studentData.add(new StudentData<>(student4TreeMap, "97511", "DS"));
+        studentData.sort(Comparator.reverseOrder());
+        printStudentData(studentData);
     }
 
 
@@ -49,10 +79,10 @@ public class InsertionSort implements SortAlgorithm {
         }
         System.out.println("比較次數: " + compareCount);
         System.out.println("交換次數: " + swapCount);
-        /* when exec this class
+
         swapCount = 0;
         compareCount = 0;
-         */
+
         return unsorted;
     }
 

@@ -11,6 +11,9 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
 import java.util.TreeMap;
 
 import static Algorithm.Sort.SortUtils.printStudentData;
@@ -21,7 +24,7 @@ public class SortGUI extends GuiFather {
     private JPanel jPanel;
     private JLabel sortGUILabel;
     private JTextArea sortOutput;
-    private StudentData<String, TreeMap<String, Integer>, String, Integer>[] studentData;
+    private List<StudentData<String, TreeMap<String, Integer>, String, Integer>> studentData = new ArrayList<>();
     private String type = "";
 
     public SortGUI(String windowName) {
@@ -46,6 +49,32 @@ public class SortGUI extends GuiFather {
                 }
             }
         });
+
+        HashMap<String, TreeMap<String, Integer>> studentHashMap = new HashMap<>();
+        TreeMap<String, Integer> student1TreeMap = new TreeMap<>();
+        student1TreeMap.put("DS", 80);
+        student1TreeMap.put("DM", 76);
+        student1TreeMap.put("LA", 63);
+        TreeMap<String, Integer> student2TreeMap = new TreeMap<>();
+        student2TreeMap.put("DS", 53);
+        student2TreeMap.put("DM", 79);
+        student2TreeMap.put("LA", 98);
+        TreeMap<String, Integer> student3TreeMap = new TreeMap<>();
+        student3TreeMap.put("DS", 83);
+        student3TreeMap.put("DM", 49);
+        student3TreeMap.put("LA", 78);
+        studentHashMap.put("97501", student1TreeMap);
+        studentData.add(new StudentData<>(student1TreeMap, "97501", "DS"));
+        studentHashMap.put("97502", student2TreeMap);
+        studentData.add(new StudentData<>(student2TreeMap, "97502", "DS"));
+        studentHashMap.put("97523", student3TreeMap);
+        studentData.add(new StudentData<>(student3TreeMap, "97523", "DS"));
+
+        /*
+        97501 DS 80 DM 76 LA 63
+        97502 DS 53 DM 79 LA 98
+        97523 DS 83 DM 49 LA 78
+         */
     }
 
     private void setSortGUILabel() {
