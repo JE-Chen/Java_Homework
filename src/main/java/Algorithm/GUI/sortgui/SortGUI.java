@@ -97,14 +97,14 @@ public class SortGUI extends GuiFather {
 
             case "2":
                 MergeSort mergeSort = new MergeSort();
-                mergeSort.sort(studentData);
+                mergeSort.sortHashMap(studentData);
                 studentData.get(0).printStudentData(studentData, sortOutput);
                 sortOutput.append(mergeSort.getSortData() + "\n");
                 break;
 
             case "3":
                 RadixSort radixSort = new RadixSort();
-                RadixSort.sortHshMap(studentData);
+                RadixSort.sortHashMap(studentData);
                 studentData.get(0).printStudentData(studentData, sortOutput);
                 sortOutput.append(radixSort.getSortData() + "\n");
                 break;

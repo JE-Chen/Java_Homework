@@ -75,11 +75,11 @@ public class RadixSort {
         studentData.add(new StudentData<>(student2TreeMap, "97502", "DS"));
         studentData.add(new StudentData<>(student3TreeMap, "97523", "DS"));
         studentData.add(new StudentData<>(student4TreeMap, "97511", "DS"));
-        sortHshMap(studentData);
+        sortHashMap(studentData);
         studentData.get(0).printStudentData(studentData);
     }
 
-    public static List<Integer> sortHshMap(List<StudentData<String, TreeMap<String, Integer>, String, Integer>> studentData) {
+    public static void sortHashMap(List<StudentData<String, TreeMap<String, Integer>, String, Integer>> studentData) {
         List<Integer> gradeList = new ArrayList<>();
         for (StudentData<String, TreeMap<String, Integer>, String, Integer> tempStudentData : studentData)
             gradeList.add(tempStudentData.getSortUseGrade());
@@ -90,7 +90,6 @@ public class RadixSort {
             gradeList.add(tempInt);
         Collections.reverse(gradeList);
         studentData.sort(Comparator.reverseOrder());
-        return gradeList;
     }
 
 
