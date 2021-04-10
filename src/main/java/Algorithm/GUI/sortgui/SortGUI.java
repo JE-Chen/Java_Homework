@@ -16,7 +16,6 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.TreeMap;
 
-import static Algorithm.Sort.SortUtils.printStudentData;
 
 public class SortGUI extends GuiFather {
     private JButton sortGUI_determine;
@@ -91,22 +90,22 @@ public class SortGUI extends GuiFather {
 
             case "1":
                 InsertionSort insertionSort = new InsertionSort();
-                // TODO insertionSort.sort();
-                printStudentData(studentData, sortOutput);
+                insertionSort.sortHashMap(studentData);
+                studentData.get(0).printStudentData(studentData, sortOutput);
                 sortOutput.append(insertionSort.getSortData() + "\n");
                 break;
 
             case "2":
                 MergeSort mergeSort = new MergeSort();
-                //TODO mergeSort.sort();
-                printStudentData(studentData, sortOutput);
+                mergeSort.sort(studentData);
+                studentData.get(0).printStudentData(studentData, sortOutput);
                 sortOutput.append(mergeSort.getSortData() + "\n");
                 break;
 
             case "3":
                 RadixSort radixSort = new RadixSort();
-                //TODO RadixSort.sort();
-                printStudentData(studentData, sortOutput);
+                RadixSort.sortHshMap(studentData);
+                studentData.get(0).printStudentData(studentData, sortOutput);
                 sortOutput.append(radixSort.getSortData() + "\n");
                 break;
 

@@ -54,8 +54,8 @@ public class InsertionSort implements SortAlgorithm {
         studentData.add(new StudentData<>(student3TreeMap, "97523", "DS"));
         studentHashMap.put("97511", student4TreeMap);
         studentData.add(new StudentData<>(student4TreeMap, "97511", "DS"));
-        studentData.sort(Comparator.reverseOrder());
-        printStudentData(studentData);
+        insertionSort.sortHashMap(studentData);
+        studentData.get(0).printStudentData(studentData);
     }
 
 
@@ -79,11 +79,22 @@ public class InsertionSort implements SortAlgorithm {
         }
         System.out.println("比較次數: " + compareCount);
         System.out.println("交換次數: " + swapCount);
-
+        /* when exec this class
         swapCount = 0;
         compareCount = 0;
-
+        */
         return unsorted;
+    }
+
+    public void sortHashMap(List<StudentData<String, TreeMap<String, Integer>, String, Integer>> studentData){
+        List<Integer> gradeList = new ArrayList<>();
+        for (StudentData<String, TreeMap<String, Integer>, String, Integer> tempStudentData : studentData)
+            gradeList.add(tempStudentData.getSortUseGrade());
+        Integer[] temp = new Integer[gradeList.size()];
+        for(int i =0;i<gradeList.size();i++)
+            temp[i] = gradeList.get(i);
+        sort(temp);
+        studentData.sort(Comparator.reverseOrder());
     }
 
     @Override

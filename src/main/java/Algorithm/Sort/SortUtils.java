@@ -60,27 +60,6 @@ public final class SortUtils {
     }
 
     /**
-     * @param toPrint the StudentData we want to print
-     */
-    static void printStudentData(List<StudentData<String, TreeMap<String, Integer>, String, Integer>> toPrint) {
-        for (StudentData<String, TreeMap<String, Integer>, String, Integer> studentData : toPrint) {
-            System.out.println(studentData.getData());
-        }
-        System.out.println();
-    }
-
-    /**
-     * @param toPrint   the StudentData we want to print
-     * @param jTextArea the textarea we want to show result
-     */
-    public static void printStudentData(List<StudentData<String, TreeMap<String, Integer>, String, Integer>> toPrint, JTextArea jTextArea) {
-        for (StudentData<String, TreeMap<String, Integer>, String, Integer> studentData : toPrint) {
-            jTextArea.append(studentData.getData() + "\n");
-        }
-        jTextArea.append("\n");
-    }
-
-    /**
      * @param unSortMap the map we want to sort
      * @param <Key>     generic type key
      * @param <Value>   generic type value

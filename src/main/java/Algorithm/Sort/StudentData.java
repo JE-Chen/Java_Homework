@@ -1,5 +1,7 @@
 package Algorithm.Sort;
 
+import javax.swing.*;
+import java.util.List;
 import java.util.TreeMap;
 
 public class StudentData<HashMapKey, HashMapValue extends TreeMap<TreeMapKey, TreeMapValue>, TreeMapKey, TreeMapValue>
@@ -15,40 +17,57 @@ public class StudentData<HashMapKey, HashMapValue extends TreeMap<TreeMapKey, Tr
         this.sortUseType = sortUseType;
     }
 
+    /**
+     * @param toPrint the StudentData we want to print
+     */
+    public void printStudentData(List<StudentData<HashMapKey, TreeMap<TreeMapKey, TreeMapValue>, TreeMapKey, TreeMapValue>> toPrint) {
+        for (StudentData<HashMapKey, TreeMap<TreeMapKey, TreeMapValue>, TreeMapKey, TreeMapValue> studentData : toPrint) {
+            System.out.println(studentData.getData());
+        }
+        System.out.println();
+    }
+
+    /**
+     * @param toPrint   the StudentData we want to print
+     * @param jTextArea the textarea we want to show result
+     */
+    public void printStudentData(List<StudentData<HashMapKey, TreeMap<TreeMapKey, TreeMapValue>, TreeMapKey, TreeMapValue>> toPrint, JTextArea jTextArea) {
+        for (StudentData<HashMapKey, TreeMap<TreeMapKey, TreeMapValue>, TreeMapKey, TreeMapValue> studentData : toPrint) {
+            jTextArea.append(studentData.getData() + "\n");
+        }
+        jTextArea.append("\n");
+    }
+
+    public Integer getSortUseGrade() {
+        return (Integer) this.studentTreeMap.get(this.sortUseType);
+    }
+
     public String getData() {
+        return studentNumber + " " + this.studentTreeMap.get(this.sortUseType);
+    }
+
+    public String getAllData() {
         //TODO Student Data
-        return studentNumber + " " + this.studentTreeMap.get("DS");
+        return studentNumber + " " + this.studentTreeMap.get(this.sortUseType);
+    }
+
+    public int getCompare(int thisCompareGrade, int anotherCompareGrade) {
+        return thisCompareGrade - anotherCompareGrade;
     }
 
     @Override
     public int compareTo(StudentData studentData) {
-        TreeMap<TreeMapKey, TreeMapValue> temp, temp2;
-        int thisCompareGrade = (int) this.studentTreeMap.get("DS"), anotherCompareGrade = (int) studentData.studentTreeMap.get("DS");
+        int thisCompareGrade = (int) this.studentTreeMap.get(this.sortUseType), anotherCompareGrade = (int) studentData.studentTreeMap.get(studentData.sortUseType);
         switch (this.sortUseType) {
             //TODO Compare student data
             case "DS":
-                thisCompareGrade = (int) this.studentTreeMap.get("DS");
-                anotherCompareGrade = (int) studentData.studentTreeMap.get("DS");
-                return thisCompareGrade - anotherCompareGrade;
             case "DM":
-                thisCompareGrade = (int) this.studentTreeMap.get("DM");
-                anotherCompareGrade = (int) studentData.studentTreeMap.get("DM");
-                return thisCompareGrade - anotherCompareGrade;
             case "LA":
-                thisCompareGrade = (int) this.studentTreeMap.get("LA");
-                anotherCompareGrade = (int) studentData.studentTreeMap.get("LA");
-                return thisCompareGrade - anotherCompareGrade;
             case "OS":
-                thisCompareGrade = (int) this.studentTreeMap.get("OS");
-                anotherCompareGrade = (int) studentData.studentTreeMap.get("OS");
-                return thisCompareGrade - anotherCompareGrade;
             case "EN":
-                thisCompareGrade = (int) this.studentTreeMap.get("EN");
-                anotherCompareGrade = (int) studentData.studentTreeMap.get("EN");
-                return thisCompareGrade - anotherCompareGrade;
-
+                return getCompare(thisCompareGrade, anotherCompareGrade);
         }
-        return thisCompareGrade - anotherCompareGrade;
+        return getCompare(thisCompareGrade, anotherCompareGrade);
     }
 
 }
