@@ -42,6 +42,10 @@ public class MainForm extends GuiFather {
             case "5":
                 new SortGUI("排序頁面");
                 break;
+            case "6":
+                this.dispose();
+                System.exit(0);
+                break;
         }
     }
 

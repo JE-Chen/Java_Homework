@@ -1,9 +1,5 @@
 package Algorithm.Sort;
 
-import java.util.ArrayList;
-import java.util.Comparator;
-import java.util.List;
-import java.util.TreeMap;
 
 import static Algorithm.Sort.SortUtils.print;
 
@@ -94,16 +90,6 @@ public class MergeSort implements SortAlgorithm {
         return unsorted;
     }
 
-    public void sortHashMap(List<StudentData<String, TreeMap<String, Integer>, String, Integer>> studentData){
-        List<Integer> gradeList = new ArrayList<>();
-        for (StudentData<String, TreeMap<String, Integer>, String, Integer> tempStudentData : studentData)
-            gradeList.add(tempStudentData.getSortUseGrade());
-        Integer[] temp = new Integer[gradeList.size()];
-        for(int i =0;i<gradeList.size();i++)
-            temp[i] = gradeList.get(i);
-        sort(temp);
-        studentData.sort(Comparator.reverseOrder());
-    }
 
     @Override
     public String getSortData() {

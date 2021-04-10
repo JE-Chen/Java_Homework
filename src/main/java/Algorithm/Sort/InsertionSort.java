@@ -6,7 +6,7 @@ import static Algorithm.Sort.SortUtils.*;
 
 public class InsertionSort implements SortAlgorithm {
 
-    private static List<StudentData<String, TreeMap<String, Integer>, String, Integer>> studentData = new ArrayList<>();
+    private static StudentData<String, TreeMap<String, Integer>, String, Integer>[] studentData = new StudentData[4];
     private int swapCount = 0, compareCount = 0;
 
     public static void main(String[] argv) {
@@ -47,15 +47,15 @@ public class InsertionSort implements SortAlgorithm {
         student4TreeMap.put("DM", 49);
         student4TreeMap.put("LA", 78);
         studentHashMap.put("97501", student1TreeMap);
-        studentData.add(new StudentData<>(student1TreeMap, "97501", "DS"));
+        studentData[0] = (new StudentData<>(student1TreeMap, "97501", "DS"));
         studentHashMap.put("97502", student2TreeMap);
-        studentData.add(new StudentData<>(student2TreeMap, "97502", "DS"));
+        studentData[1] = (new StudentData<>(student2TreeMap, "97502", "DS"));
         studentHashMap.put("97523", student3TreeMap);
-        studentData.add(new StudentData<>(student3TreeMap, "97523", "DS"));
+        studentData[2] = (new StudentData<>(student3TreeMap, "97523", "DS"));
         studentHashMap.put("97511", student4TreeMap);
-        studentData.add(new StudentData<>(student4TreeMap, "97511", "DS"));
-        insertionSort.sortHashMap(studentData);
-        studentData.get(0).printStudentData(studentData);
+        studentData[3] = (new StudentData<>(student4TreeMap, "97511", "DS"));
+        insertionSort.sort(studentData);
+        studentData[0].printStudentData(studentData);
     }
 
 
@@ -86,16 +86,6 @@ public class InsertionSort implements SortAlgorithm {
         return unsorted;
     }
 
-    public void sortHashMap(List<StudentData<String, TreeMap<String, Integer>, String, Integer>> studentData){
-        List<Integer> gradeList = new ArrayList<>();
-        for (StudentData<String, TreeMap<String, Integer>, String, Integer> tempStudentData : studentData)
-            gradeList.add(tempStudentData.getSortUseGrade());
-        Integer[] temp = new Integer[gradeList.size()];
-        for(int i =0;i<gradeList.size();i++)
-            temp[i] = gradeList.get(i);
-        sort(temp);
-        studentData.sort(Comparator.reverseOrder());
-    }
 
     @Override
     public String getSortData() {

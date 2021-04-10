@@ -11,9 +11,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
-import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
 import java.util.TreeMap;
 
 
@@ -23,7 +21,7 @@ public class SortGUI extends GuiFather {
     private JPanel jPanel;
     private JLabel sortGUILabel;
     private JTextArea sortOutput;
-    private List<StudentData<String, TreeMap<String, Integer>, String, Integer>> studentData = new ArrayList<>();
+    private StudentData<String, TreeMap<String, Integer>, String, Integer>[] studentData = new StudentData[3];
     private String type = "";
 
     public SortGUI(String windowName) {
@@ -63,11 +61,11 @@ public class SortGUI extends GuiFather {
         student3TreeMap.put("DM", 49);
         student3TreeMap.put("LA", 78);
         studentHashMap.put("97501", student1TreeMap);
-        studentData.add(new StudentData<>(student1TreeMap, "97501", "DS"));
+        studentData[0] = (new StudentData<>(student1TreeMap, "97501", "DS"));
         studentHashMap.put("97502", student2TreeMap);
-        studentData.add(new StudentData<>(student2TreeMap, "97502", "DS"));
+        studentData[1] = (new StudentData<>(student2TreeMap, "97502", "DS"));
         studentHashMap.put("97523", student3TreeMap);
-        studentData.add(new StudentData<>(student3TreeMap, "97523", "DS"));
+        studentData[2] = (new StudentData<>(student3TreeMap, "97523", "DS"));
 
         /*
         97501 DS 80 DM 76 LA 63
@@ -90,22 +88,22 @@ public class SortGUI extends GuiFather {
 
             case "1":
                 InsertionSort insertionSort = new InsertionSort();
-                insertionSort.sortHashMap(studentData);
-                studentData.get(0).printStudentData(studentData, sortOutput);
+                insertionSort.sort(studentData);
+                studentData[0].printStudentData(studentData, sortOutput);
                 sortOutput.append(insertionSort.getSortData() + "\n");
                 break;
 
             case "2":
                 MergeSort mergeSort = new MergeSort();
-                mergeSort.sortHashMap(studentData);
-                studentData.get(0).printStudentData(studentData, sortOutput);
+                mergeSort.sort(studentData);
+                studentData[0].printStudentData(studentData, sortOutput);
                 sortOutput.append(mergeSort.getSortData() + "\n");
                 break;
 
             case "3":
                 RadixSort radixSort = new RadixSort();
-                RadixSort.sortHashMap(studentData);
-                studentData.get(0).printStudentData(studentData, sortOutput);
+                radixSort.sort(studentData);
+                studentData[0].printStudentData(studentData, sortOutput);
                 sortOutput.append(radixSort.getSortData() + "\n");
                 break;
 

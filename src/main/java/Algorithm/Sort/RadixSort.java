@@ -6,7 +6,7 @@ import static Algorithm.Sort.SortUtils.print;
 
 public class RadixSort {
 
-    private static List<StudentData<String, TreeMap<String, Integer>, String, Integer>> studentData = new ArrayList<>();
+    private static StudentData<String, TreeMap<String, Integer>, String, Integer>[] studentData = new StudentData[4];
 
     public static int getMax(int[] array, int arrayLength) {
         int maxNumber = array[0];
@@ -35,21 +35,40 @@ public class RadixSort {
             array[i] = outputArray[i];
     }
 
-    public static void sortHshMap(int[] array, int arrayLength) {
+
+    public void sort(int[] array, int arrayLength) {
         int maxNumber = getMax(array, arrayLength);
         for (int exp = 1; maxNumber / exp > 0; exp *= 10)
             countSort(array, arrayLength, exp);
     }
 
+    public void sort(StudentData<String, TreeMap<String, Integer>, String, Integer>[] unsorted) {
+        List<Integer> gradeList = new ArrayList<>();
+        for (StudentData<String, TreeMap<String, Integer>, String, Integer> tempStudentData : unsorted) {
+            gradeList.add(tempStudentData.getSortUseGrade());
+        }
+        int[] array = gradeList.stream().mapToInt(i -> i).toArray();
+        sort(array, array.length);
+        gradeList.clear();
+        for (int tempInt : array)
+            gradeList.add(tempInt);
+        Collections.reverse(gradeList);
+        List<StudentData<String, TreeMap<String, Integer>, String, Integer>> studentDataList = Arrays.asList(unsorted);
+        studentDataList.sort(Comparator.reverseOrder());
+    }
+
+    public String getSortData() {
+        return "使用RadixSort排序";
+    }
 
     public static void main(String[] argv) {
+        RadixSort radixSort = new RadixSort();
         int[] array = {170, 45, 75, 90, 802, 24, 2, 66};
         int arrayLength = array.length;
-        sortHshMap(array, arrayLength);
+        radixSort.sort(array, arrayLength);
         print(array, arrayLength);
         System.out.println();
 
-        RadixSort radixSort = new RadixSort();
         HashMap<String, TreeMap<String, Integer>> studentHashMap = new HashMap<>();
         TreeMap<String, Integer> student1TreeMap = new TreeMap<>();
         student1TreeMap.put("DS", 80);
@@ -68,33 +87,15 @@ public class RadixSort {
         student4TreeMap.put("DM", 49);
         student4TreeMap.put("LA", 78);
         studentHashMap.put("97501", student1TreeMap);
+        studentData[0] = (new StudentData<>(student1TreeMap, "97501", "DS"));
         studentHashMap.put("97502", student2TreeMap);
+        studentData[1] = (new StudentData<>(student2TreeMap, "97502", "DS"));
         studentHashMap.put("97523", student3TreeMap);
+        studentData[2] = (new StudentData<>(student3TreeMap, "97523", "DS"));
         studentHashMap.put("97511", student4TreeMap);
-        studentData.add(new StudentData<>(student1TreeMap, "97501", "DS"));
-        studentData.add(new StudentData<>(student2TreeMap, "97502", "DS"));
-        studentData.add(new StudentData<>(student3TreeMap, "97523", "DS"));
-        studentData.add(new StudentData<>(student4TreeMap, "97511", "DS"));
-        sortHashMap(studentData);
-        studentData.get(0).printStudentData(studentData);
-    }
-
-    public static void sortHashMap(List<StudentData<String, TreeMap<String, Integer>, String, Integer>> studentData) {
-        List<Integer> gradeList = new ArrayList<>();
-        for (StudentData<String, TreeMap<String, Integer>, String, Integer> tempStudentData : studentData)
-            gradeList.add(tempStudentData.getSortUseGrade());
-        int[] array = gradeList.stream().mapToInt(i -> i).toArray();
-        sortHshMap(array, array.length);
-        gradeList.clear();
-        for(int tempInt : array)
-            gradeList.add(tempInt);
-        Collections.reverse(gradeList);
-        studentData.sort(Comparator.reverseOrder());
-    }
-
-
-    public String getSortData() {
-        return "使用RadixSort排序";
+        studentData[3] = (new StudentData<>(student4TreeMap, "97511", "DS"));
+        radixSort.sort(studentData);
+        studentData[0].printStudentData(studentData);
     }
 
 }

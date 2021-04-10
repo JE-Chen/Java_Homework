@@ -17,10 +17,11 @@ public class StudentData<HashMapKey, HashMapValue extends TreeMap<TreeMapKey, Tr
         this.sortUseType = sortUseType;
     }
 
+
     /**
-     * @param toPrint the StudentData we want to print
+     * @param toPrint   the StudentData we want to print
      */
-    public void printStudentData(List<StudentData<HashMapKey, TreeMap<TreeMapKey, TreeMapValue>, TreeMapKey, TreeMapValue>> toPrint) {
+    public void printStudentData(StudentData<HashMapKey, TreeMap<TreeMapKey, TreeMapValue>, TreeMapKey, TreeMapValue>[] toPrint) {
         for (StudentData<HashMapKey, TreeMap<TreeMapKey, TreeMapValue>, TreeMapKey, TreeMapValue> studentData : toPrint) {
             System.out.println(studentData.getData());
         }
@@ -31,7 +32,7 @@ public class StudentData<HashMapKey, HashMapValue extends TreeMap<TreeMapKey, Tr
      * @param toPrint   the StudentData we want to print
      * @param jTextArea the textarea we want to show result
      */
-    public void printStudentData(List<StudentData<HashMapKey, TreeMap<TreeMapKey, TreeMapValue>, TreeMapKey, TreeMapValue>> toPrint, JTextArea jTextArea) {
+    public void printStudentData(StudentData<HashMapKey, TreeMap<TreeMapKey, TreeMapValue>, TreeMapKey, TreeMapValue>[] toPrint, JTextArea jTextArea) {
         for (StudentData<HashMapKey, TreeMap<TreeMapKey, TreeMapValue>, TreeMapKey, TreeMapValue> studentData : toPrint) {
             jTextArea.append(studentData.getData() + "\n");
         }
