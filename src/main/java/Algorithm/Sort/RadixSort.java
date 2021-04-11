@@ -1,10 +1,12 @@
 package Algorithm.Sort;
 
+import Algorithm.student.StudentData;
+
 import java.util.*;
 
 import static Algorithm.Sort.SortUtils.print;
 
-public class RadixSort {
+public class RadixSort implements SortAlgorithm {
 
     private static StudentData<String, TreeMap<String, Integer>, String, Integer>[] studentData = new StudentData[4];
 
@@ -57,6 +59,18 @@ public class RadixSort {
         studentDataList.sort(Comparator.reverseOrder());
     }
 
+
+    @Override
+    public <T extends Comparable<T>> T[] sort(T[] unsorted) {
+        List<T> unsortedList = Arrays.asList(unsorted);
+        unsortedList.sort(Comparator.reverseOrder());
+        for (int i = 0; i < unsorted.length; i++) {
+            unsorted[i] = unsortedList.get(i);
+        }
+        return unsorted;
+    }
+
+    @Override
     public String getSortData() {
         return "使用RadixSort排序";
     }

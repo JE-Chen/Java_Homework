@@ -4,13 +4,17 @@ import Algorithm.GUI.GuiFather;
 import Algorithm.Sort.InsertionSort;
 import Algorithm.Sort.MergeSort;
 import Algorithm.Sort.RadixSort;
-import Algorithm.Sort.StudentData;
+import Algorithm.student.StudentData;
+import Algorithm.student.StudentDataProcess;
+import Algorithm.util.file.FileIO;
 
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
+import java.io.File;
+import java.io.IOException;
 import java.util.HashMap;
 import java.util.TreeMap;
 
@@ -22,7 +26,9 @@ public class SortGUI extends GuiFather {
     private JLabel sortGUILabel;
     private JTextArea sortOutput;
     private StudentData<String, TreeMap<String, Integer>, String, Integer>[] studentData = new StudentData[3];
-    private String type = "";
+    private String type = "DS";
+    private final FileIO fileIO = new FileIO();
+    private final StudentDataProcess<String, TreeMap<String, Integer>, String, Integer> studentDataProcess = new StudentDataProcess<>();
 
     public SortGUI(String windowName) {
         super(windowName);
@@ -80,11 +86,22 @@ public class SortGUI extends GuiFather {
                 "<br> 1.Insertion Sort" +
                 "<br> 2.Merge Sort" +
                 "<br> 3.Radix Sort" +
+                "<br> 或是輸入 0 讀取檔案" +
                 "</html>");
     }
 
     private void selectFunction(String selectString) {
         switch (selectString) {
+
+            case "0":
+                try {
+                    File file = fileIO.fileChooser();
+                    String rawStudentDataString = fileIO.readFile(file);
+                    studentDataProcess.processRawString(rawStudentDataString);
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+                break;
 
             case "1":
                 InsertionSort insertionSort = new InsertionSort();
@@ -111,17 +128,16 @@ public class SortGUI extends GuiFather {
                 type = "DS";
                 setSortGUILabel();
                 break;
-
             case "DM":
                 type = "DM";
                 setSortGUILabel();
                 break;
-
             case "LA":
                 type = "LA";
                 setSortGUILabel();
                 break;
         }
+        
     }
 
 }
