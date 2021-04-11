@@ -4,6 +4,7 @@ import Algorithm.GUI.GuiFather;
 import Algorithm.Sort.InsertionSort;
 import Algorithm.Sort.MergeSort;
 import Algorithm.Sort.RadixSort;
+import Algorithm.Sort.SortAlgorithm;
 import Algorithm.student.StudentData;
 import Algorithm.student.StudentDataProcess;
 import Algorithm.util.file.FileIO;
@@ -26,7 +27,6 @@ public class SortGUI extends GuiFather {
     private JLabel sortGUILabel;
     private JTextArea sortOutput;
     private StudentData<String, TreeMap<String, Integer>, String, Integer>[] studentData = new StudentData[3];
-    private String type = "DS";
     private final FileIO fileIO = new FileIO();
     private final StudentDataProcess<String, TreeMap<String, Integer>, String, Integer> studentDataProcess = new StudentDataProcess<>();
 
@@ -87,7 +87,19 @@ public class SortGUI extends GuiFather {
                 "<br> 2.Merge Sort" +
                 "<br> 3.Radix Sort" +
                 "<br> 或是輸入 0 讀取檔案" +
+                "<br>也可輸入科目名稱設定排序科目" +
                 "</html>");
+    }
+
+    private void setSortType(String sortType){
+        for (StudentData<String, TreeMap<String, Integer>, String, Integer> tempStudentData : studentData)
+            tempStudentData.setSortUseType(sortType);
+    }
+
+    private void sort(SortAlgorithm sortAlgorithm){
+        sortAlgorithm.sort(studentData);
+        studentData[0].printStudentData(studentData, sortOutput);
+        sortOutput.append(sortAlgorithm.getSortData() + "\n");
     }
 
     private void selectFunction(String selectString) {
@@ -105,39 +117,32 @@ public class SortGUI extends GuiFather {
 
             case "1":
                 InsertionSort insertionSort = new InsertionSort();
-                insertionSort.sort(studentData);
-                studentData[0].printStudentData(studentData, sortOutput);
-                sortOutput.append(insertionSort.getSortData() + "\n");
+                sort(insertionSort);
                 break;
 
             case "2":
                 MergeSort mergeSort = new MergeSort();
-                mergeSort.sort(studentData);
-                studentData[0].printStudentData(studentData, sortOutput);
-                sortOutput.append(mergeSort.getSortData() + "\n");
+                sort(mergeSort);
                 break;
 
             case "3":
                 RadixSort radixSort = new RadixSort();
-                radixSort.sort(studentData);
-                studentData[0].printStudentData(studentData, sortOutput);
-                sortOutput.append(radixSort.getSortData() + "\n");
+                sort(radixSort);
                 break;
 
             case "DS":
-                type = "DS";
+                setSortType("DS");
                 setSortGUILabel();
                 break;
             case "DM":
-                type = "DM";
+                setSortType("DM");
                 setSortGUILabel();
                 break;
             case "LA":
-                type = "LA";
+                setSortType("LA");
                 setSortGUILabel();
                 break;
         }
-        
     }
 
 }
