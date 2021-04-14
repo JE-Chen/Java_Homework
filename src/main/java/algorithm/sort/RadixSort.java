@@ -1,10 +1,10 @@
-package Algorithm.Sort;
+package algorithm.sort;
 
-import Algorithm.student.StudentData;
+import algorithm.student.StudentData;
 
 import java.util.*;
 
-import static Algorithm.Sort.SortUtils.print;
+import static algorithm.sort.SortUtils.print;
 
 public class RadixSort implements SortAlgorithm {
 

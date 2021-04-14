@@ -1,7 +1,7 @@
-package Algorithm.Sort;
+package algorithm.sort;
 
 
-import static Algorithm.Sort.SortUtils.print;
+import static algorithm.sort.SortUtils.print;
 
 public class MergeSort implements SortAlgorithm {
 

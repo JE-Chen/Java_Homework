@@ -1,9 +1,9 @@
-package Algorithm.student;
+package algorithm.student;
 
 import javax.swing.*;
 import java.util.TreeMap;
 
-public class StudentData<HashMapKey, HashMapValue extends TreeMap<TreeMapKey, TreeMapValue>, TreeMapKey, TreeMapValue>
+public class StudentData<HashMapKey , HashMapValue extends TreeMap<TreeMapKey, TreeMapValue>, TreeMapKey, TreeMapValue>
         implements Comparable<StudentData<HashMapKey, HashMapValue, TreeMapKey, TreeMapValue>> {
 
     private final TreeMap<TreeMapKey, TreeMapValue> studentTreeMap;
@@ -65,7 +65,6 @@ public class StudentData<HashMapKey, HashMapValue extends TreeMap<TreeMapKey, Tr
             anotherCompareGrade = (int) studentData.studentTreeMap.get(studentData.sortUseType);
 
         switch (this.sortUseType) {
-            //TODO Compare student data
             case "DS":
             case "DM":
             case "LA":

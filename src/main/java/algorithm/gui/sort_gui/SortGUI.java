@@ -1,13 +1,13 @@
-package Algorithm.GUI.sortgui;
+package algorithm.gui.sort_gui;
 
-import Algorithm.GUI.GuiFather;
-import Algorithm.Sort.InsertionSort;
-import Algorithm.Sort.MergeSort;
-import Algorithm.Sort.RadixSort;
-import Algorithm.Sort.SortAlgorithm;
-import Algorithm.student.StudentData;
-import Algorithm.student.StudentDataProcess;
-import Algorithm.util.file.FileIO;
+import algorithm.gui.GUIFather;
+import algorithm.sort.InsertionSort;
+import algorithm.sort.MergeSort;
+import algorithm.sort.RadixSort;
+import algorithm.sort.SortAlgorithm;
+import algorithm.student.StudentData;
+import algorithm.student.StudentDataProcess;
+import algorithm.util.file.FileIO;
 
 import javax.swing.*;
 import java.awt.event.ActionEvent;
@@ -20,13 +20,13 @@ import java.util.HashMap;
 import java.util.TreeMap;
 
 
-public class SortGUI extends GuiFather {
+public class SortGUI extends GUIFather {
     private JButton sortGUI_determine;
     private JTextField sortGUI_input;
     private JPanel jPanel;
     private JLabel sortGUILabel;
     private JTextArea sortOutput;
-    private StudentData<String, TreeMap<String, Integer>, String, Integer>[] studentData = new StudentData[3];
+    private StudentData<String, TreeMap<String, Integer>, String, Integer>[] studentDataArray;
     private final FileIO fileIO = new FileIO();
     private final StudentDataProcess<String, TreeMap<String, Integer>, String, Integer> studentDataProcess = new StudentDataProcess<>();
 
@@ -67,11 +67,11 @@ public class SortGUI extends GuiFather {
         student3TreeMap.put("DM", 49);
         student3TreeMap.put("LA", 78);
         studentHashMap.put("97501", student1TreeMap);
-        studentData[0] = (new StudentData<>(student1TreeMap, "97501", "DS"));
+        studentDataArray[0] = (new StudentData<>(student1TreeMap, "97501", "DS"));
         studentHashMap.put("97502", student2TreeMap);
-        studentData[1] = (new StudentData<>(student2TreeMap, "97502", "DS"));
+        studentDataArray[1] = (new StudentData<>(student2TreeMap, "97502", "DS"));
         studentHashMap.put("97523", student3TreeMap);
-        studentData[2] = (new StudentData<>(student3TreeMap, "97523", "DS"));
+        studentDataArray[2] = (new StudentData<>(student3TreeMap, "97523", "DS"));
 
         /*
         97501 DS 80 DM 76 LA 63
@@ -92,13 +92,13 @@ public class SortGUI extends GuiFather {
     }
 
     private void setSortType(String sortType){
-        for (StudentData<String, TreeMap<String, Integer>, String, Integer> tempStudentData : studentData)
+        for (StudentData<String, TreeMap<String, Integer>, String, Integer> tempStudentData : studentDataArray)
             tempStudentData.setSortUseType(sortType);
     }
 
     private void sort(SortAlgorithm sortAlgorithm){
-        sortAlgorithm.sort(studentData);
-        studentData[0].printStudentData(studentData, sortOutput);
+        sortAlgorithm.sort(studentDataArray);
+        studentDataArray[0].printStudentData(studentDataArray, sortOutput);
         sortOutput.append(sortAlgorithm.getSortData() + "\n");
     }
 
@@ -109,7 +109,7 @@ public class SortGUI extends GuiFather {
                 try {
                     File file = fileIO.fileChooser();
                     String rawStudentDataString = fileIO.readFile(file);
-                    studentDataProcess.processRawString(rawStudentDataString);
+                    studentDataArray = studentDataProcess.processRawString(rawStudentDataString);
                 } catch (IOException e) {
                     e.printStackTrace();
                 }

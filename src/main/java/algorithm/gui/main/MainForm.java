@@ -1,7 +1,7 @@
-package Algorithm.GUI.main;
+package algorithm.gui.main;
 
-import Algorithm.GUI.GuiFather;
-import Algorithm.GUI.sortgui.SortGUI;
+import algorithm.gui.GUIFather;
+import algorithm.gui.sort_gui.SortGUI;
 
 import javax.swing.*;
 import java.awt.event.ActionEvent;
@@ -9,7 +9,7 @@ import java.awt.event.ActionListener;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
 
-public class MainForm extends GuiFather {
+public class MainForm extends GUIFather {
     private JTextField main_input_choose;
     private JPanel jPanel;
     private JButton main_choose_button;
@@ -39,6 +39,14 @@ public class MainForm extends GuiFather {
 
     private void selectFunction(String selectString) {
         switch (selectString) {
+            case "1":
+                break;
+            case "2":
+                break;
+            case "3":
+                break;
+            case "4":
+                break;
             case "5":
                 new SortGUI("排序頁面");
                 break;

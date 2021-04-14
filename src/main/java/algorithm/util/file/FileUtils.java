@@ -1,4 +1,4 @@
-package Algorithm.util.file;
+package algorithm.util.file;
 
 import java.io.*;
 import java.nio.file.Files;

@@ -1,6 +1,6 @@
-package Algorithm;
+package algorithm;
 
-import Algorithm.GUI.main.MainForm;
+import algorithm.gui.main.MainForm;
 
 public class Main {
 

@@ -1,6 +1,5 @@
-package Algorithm.Sort;
+package algorithm.sort;
 
-import javax.swing.*;
 import java.util.*;
 
 public final class SortUtils {

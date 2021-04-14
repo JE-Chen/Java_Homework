@@ -1,10 +1,10 @@
-package Algorithm.util.file;
+package algorithm.util.file;
 
 import javax.swing.*;
 import javax.swing.filechooser.FileNameExtensionFilter;
 import java.io.*;
 
-import static Algorithm.util.file.FileUtils.removeUsingNewFile;
+import static algorithm.util.file.FileUtils.removeUsingNewFile;
 
 public class FileIO {
 

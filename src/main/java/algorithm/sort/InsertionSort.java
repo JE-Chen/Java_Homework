@@ -1,12 +1,12 @@
-package Algorithm.Sort;
+package algorithm.sort;
 
-import Algorithm.student.StudentData;
+import algorithm.student.StudentData;
 
 import java.util.HashMap;
 import java.util.TreeMap;
 
-import static Algorithm.Sort.SortUtils.more;
-import static Algorithm.Sort.SortUtils.print;
+import static algorithm.sort.SortUtils.more;
+import static algorithm.sort.SortUtils.print;
 
 public class InsertionSort implements SortAlgorithm {
 

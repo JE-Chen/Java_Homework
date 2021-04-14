@@ -1,4 +1,4 @@
-package Algorithm.util.file;
+package algorithm.util.file;
 
 public interface FileInterface {
 }
