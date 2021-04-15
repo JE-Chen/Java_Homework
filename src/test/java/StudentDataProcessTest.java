@@ -6,7 +6,7 @@ import org.junit.jupiter.api.Test;
 import java.io.IOException;
 import java.util.TreeMap;
 
-class StudentDataProcessTest {
+public class StudentDataProcessTest {
 
     private static StudentData<String, TreeMap<String, Integer>, String, Integer>[] studentDataArray;
 
