@@ -61,7 +61,6 @@ public class StudentData<HashMapKey , HashMapValue extends TreeMap<TreeMapKey, T
     public int compareTo(StudentData studentData) {
         int thisCompareGrade = 0;
         int anotherCompareGrade = 0;
-        //test
         if (this.studentTreeMap.get(this.sortUseType) != null)
             thisCompareGrade = (Integer) this.studentTreeMap.get(this.sortUseType);
         if (studentData.studentTreeMap.get(studentData.sortUseType) != null)

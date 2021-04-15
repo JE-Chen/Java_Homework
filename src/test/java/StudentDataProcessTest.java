@@ -1,5 +1,5 @@
-package algorithm.student;
-
+import algorithm.student.StudentData;
+import algorithm.student.StudentDataProcess;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 

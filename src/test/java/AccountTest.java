@@ -1,5 +1,4 @@
-package SoftwareEngineering.Junit;
-
+import SoftwareEngineering.Junit.Account;
 import org.junit.Test;
 
 import static org.junit.jupiter.api.Assertions.assertFalse;
