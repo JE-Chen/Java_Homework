@@ -25,7 +25,6 @@ public class StudentDataProcess {
         return parseStudentData();
     }
 
-    //TODO Parse student data
     private StudentData<String, TreeMap<String, Integer>, String, Integer>[] parseStudentData() throws IOException {
         String[] rawStringArray;
         studentDataArray = new StudentData[stringLineCount];
