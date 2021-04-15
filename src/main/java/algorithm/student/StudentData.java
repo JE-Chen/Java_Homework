@@ -8,7 +8,7 @@ public class StudentData<HashMapKey , HashMapValue extends TreeMap<TreeMapKey, T
 
     private final TreeMap<TreeMapKey, TreeMapValue> studentTreeMap;
     private final String studentNumber;
-    private String sortUseType = "DS";
+    private String sortUseType;
 
     public StudentData(TreeMap<TreeMapKey, TreeMapValue> studentTreeMap, String studentNumber, String sortUseType) {
         this.studentTreeMap = studentTreeMap;
@@ -62,9 +62,9 @@ public class StudentData<HashMapKey , HashMapValue extends TreeMap<TreeMapKey, T
         int thisCompareGrade = 0;
         int anotherCompareGrade = 0;
         if (this.studentTreeMap.get(this.sortUseType) != null)
-            thisCompareGrade = (int) this.studentTreeMap.get(this.sortUseType);
+            thisCompareGrade = (Integer) this.studentTreeMap.get(this.sortUseType);
         if (studentData.studentTreeMap.get(studentData.sortUseType) != null)
-            anotherCompareGrade = (int) studentData.studentTreeMap.get(studentData.sortUseType);
+            anotherCompareGrade = (Integer) studentData.studentTreeMap.get(studentData.sortUseType);
 
         switch (this.sortUseType) {
             case "DS":
