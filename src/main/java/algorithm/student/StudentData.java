@@ -22,7 +22,7 @@ public class StudentData<HashMapKey , HashMapValue extends TreeMap<TreeMapKey, T
      */
     public void printStudentData(StudentData<HashMapKey, TreeMap<TreeMapKey, TreeMapValue>, TreeMapKey, TreeMapValue>[] toPrint) {
         for (StudentData<HashMapKey, TreeMap<TreeMapKey, TreeMapValue>, TreeMapKey, TreeMapValue> studentData : toPrint) {
-            System.out.println(studentData.getData());
+            System.out.println(studentData.getAllData());
         }
         System.out.println();
     }
@@ -33,7 +33,7 @@ public class StudentData<HashMapKey , HashMapValue extends TreeMap<TreeMapKey, T
      */
     public void printStudentData(StudentData<HashMapKey, TreeMap<TreeMapKey, TreeMapValue>, TreeMapKey, TreeMapValue>[] toPrint, JTextArea jTextArea) {
         for (StudentData<HashMapKey, TreeMap<TreeMapKey, TreeMapValue>, TreeMapKey, TreeMapValue> studentData : toPrint) {
-            jTextArea.append(studentData.getData() + "\n");
+            jTextArea.append(studentData.getAllData() + "\n");
         }
         jTextArea.append("\n");
     }
@@ -46,13 +46,15 @@ public class StudentData<HashMapKey , HashMapValue extends TreeMap<TreeMapKey, T
         return (Integer) this.studentTreeMap.get(this.sortUseType);
     }
 
-    public String getData() {
-        return studentNumber + " " + this.sortUseType + " " + this.studentTreeMap.get(this.sortUseType);
-    }
-
     public String getAllData() {
         //TODO Student Data
-        return studentNumber + " " + this.studentTreeMap.get(this.sortUseType);
+        StringBuilder studentDataBuilder = new StringBuilder();
+        studentDataBuilder.append(studentNumber).append(" ");
+        for(TreeMapKey treeMapKey : studentTreeMap.keySet()){
+            studentDataBuilder.append(treeMapKey).append(" ");
+            studentDataBuilder.append(studentTreeMap.get(treeMapKey)).append(" ");
+        }
+        return studentDataBuilder.toString();
     }
 
     @Override

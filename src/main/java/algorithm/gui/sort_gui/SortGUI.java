@@ -1,6 +1,6 @@
 package algorithm.gui.sort_gui;
 
-import algorithm.gui.GUIFather;
+import algorithm.gui.GuiFather;
 import algorithm.sort.InsertionSort;
 import algorithm.sort.MergeSort;
 import algorithm.sort.RadixSort;
@@ -10,6 +10,7 @@ import algorithm.student.StudentDataProcess;
 import algorithm.util.file.FileIO;
 
 import javax.swing.*;
+import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyAdapter;
@@ -20,7 +21,7 @@ import java.util.HashMap;
 import java.util.TreeMap;
 
 
-public class SortGUI extends GUIFather {
+public class SortGUI extends GuiFather {
     private JButton sortGUI_determine;
     private JTextField sortGUI_input;
     private JPanel jPanel;
@@ -28,7 +29,7 @@ public class SortGUI extends GUIFather {
     private JTextArea sortOutput;
     private StudentData<String, TreeMap<String, Integer>, String, Integer>[] studentDataArray;
     private final FileIO fileIO = new FileIO();
-    private final StudentDataProcess<String, TreeMap<String, Integer>, String, Integer> studentDataProcess = new StudentDataProcess<>();
+    private final StudentDataProcess studentDataProcess = new StudentDataProcess();
 
     public SortGUI(String windowName) {
         super(windowName);
@@ -91,12 +92,12 @@ public class SortGUI extends GUIFather {
                 "</html>");
     }
 
-    private void setSortType(String sortType){
+    private void setSortType(String sortType) {
         for (StudentData<String, TreeMap<String, Integer>, String, Integer> tempStudentData : studentDataArray)
             tempStudentData.setSortUseType(sortType);
     }
 
-    private void sort(SortAlgorithm sortAlgorithm){
+    private void sort(SortAlgorithm sortAlgorithm) {
         sortAlgorithm.sort(studentDataArray);
         studentDataArray[0].printStudentData(studentDataArray, sortOutput);
         sortOutput.append(sortAlgorithm.getSortData() + "\n");

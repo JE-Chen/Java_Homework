@@ -1,15 +1,16 @@
 package algorithm.gui.main;
 
-import algorithm.gui.GUIFather;
+import algorithm.gui.GuiFather;
 import algorithm.gui.sort_gui.SortGUI;
 
 import javax.swing.*;
+import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
 
-public class MainForm extends GUIFather {
+public class MainForm extends GuiFather {
     private JTextField main_input_choose;
     private JPanel jPanel;
     private JButton main_choose_button;

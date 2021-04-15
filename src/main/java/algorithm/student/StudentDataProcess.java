@@ -5,17 +5,16 @@ import java.io.IOException;
 import java.io.Reader;
 import java.io.StringReader;
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
 import java.util.TreeMap;
 
-public class StudentDataProcess<HashMapKey, HashMapValue extends TreeMap<TreeMapKey, TreeMapValue>, TreeMapKey, TreeMapValue> {
+public class StudentDataProcess {
 
     private List<String[]> rawStringList = new ArrayList<>();
     private int stringLineCount = 0;
-    private StudentData<HashMapKey, HashMapValue, TreeMapKey, TreeMapValue>[] studentDataArray;
+    private StudentData<String, TreeMap<String, Integer>, String, Integer>[] studentDataArray;
 
-    public StudentData<HashMapKey, HashMapValue, TreeMapKey, TreeMapValue>[] processRawString(String rawString) throws IOException {
+    public StudentData<String, TreeMap<String, Integer>, String, Integer>[] processRawString(String rawString) throws IOException {
         String temp;
         Reader stringReader = new StringReader(rawString);
         BufferedReader bufferedReader = new BufferedReader(stringReader);
@@ -27,14 +26,18 @@ public class StudentDataProcess<HashMapKey, HashMapValue extends TreeMap<TreeMap
     }
 
     //TODO Parse student data
-    public StudentData<HashMapKey, HashMapValue, TreeMapKey, TreeMapValue>[] parseStudentData() throws IOException {
+    private StudentData<String, TreeMap<String, Integer>, String, Integer>[] parseStudentData() throws IOException {
+        String[] rawStringArray;
         studentDataArray = new StudentData[stringLineCount];
         for (int forCount = 0; forCount < stringLineCount; forCount++) {
-            HashMap<HashMapKey, HashMapValue> hashMap = new HashMap<>();
-            TreeMap<TreeMapKey, TreeMapValue> treeMap = new TreeMap<>();
-            String[] rawStringArray = rawStringList.get(forCount);
+            TreeMap<String, Integer> treeMap = new TreeMap<>();
+            rawStringArray = rawStringList.get(forCount);
             String studentNumber = rawStringArray[0];
+            for (int processStudentForInteger = 1; processStudentForInteger < (rawStringArray.length - 1); processStudentForInteger += 2) {
+                treeMap.put(rawStringArray[processStudentForInteger], Integer.valueOf(rawStringArray[processStudentForInteger + 1]));
+            }
+            studentDataArray[forCount] = new StudentData<>(treeMap, studentNumber, "DS");
         }
-        return null;
+        return studentDataArray;
     }
 }
