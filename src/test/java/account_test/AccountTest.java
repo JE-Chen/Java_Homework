@@ -1,3 +1,5 @@
+package account_test;
+
 import SoftwareEngineering.Junit.Account;
 import org.junit.Test;
 
