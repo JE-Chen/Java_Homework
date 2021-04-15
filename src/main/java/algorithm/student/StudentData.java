@@ -8,7 +8,7 @@ public class StudentData<HashMapKey , HashMapValue extends TreeMap<TreeMapKey, T
 
     private final TreeMap<TreeMapKey, TreeMapValue> studentTreeMap;
     private final String studentNumber;
-    private String sortUseType;
+    private String sortUseType = "DS";
 
     public StudentData(TreeMap<TreeMapKey, TreeMapValue> studentTreeMap, String studentNumber, String sortUseType) {
         this.studentTreeMap = studentTreeMap;
