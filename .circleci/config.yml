@@ -7,8 +7,8 @@ workflows:
   Account Test:
     jobs:
       - maven/test:
-          test_results_path: /test/java/account_test
+          test_results_path: /test/java/account_test/
   Student Data Process Test:
     jobs:
       - maven/test:
-          test_results_path: /test/java/student_test
+          test_results_path: /test/java/student_test/
