@@ -1,14 +1,9 @@
 version: 2.1
 
 orbs:
-  maven: circleci/maven@0.0.12
+  maven: circleci/maven@1.1.1
 
 workflows:
   Account Test:
     jobs:
-      - maven/test:
-          test_results_path: /test/java/account_test/
-  Student Data Process Test:
-    jobs:
-      - maven/test:
-          test_results_path: /test/java/student_test/
+      - maven/test
