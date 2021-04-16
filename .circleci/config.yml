@@ -4,7 +4,9 @@ orbs:
   maven: circleci/maven@0.0.12
 
 workflows:
-  maven_test:
+  Account Test:
     jobs:
       - maven/test/java/account_test
+  Student Data Process Test:
+    jobs:
       - maven/test/java/student_test
