@@ -6,8 +6,6 @@ orbs:
 workflows:
   RunAndTest:
     jobs:
-      test:
-        -run:
-          mvn clean test
+      - maven/test
 
 
