@@ -6,7 +6,9 @@ orbs:
 workflows:
   Account Test:
     jobs:
-      - maven/test/java/account_test
+      - maven/test:
+          test_results_path: /test/java/account_test
   Student Data Process Test:
     jobs:
-      - maven/test/java/student_test
+      - maven/test:
+          test_results_path: /test/java/student_test
