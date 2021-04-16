@@ -4,7 +4,7 @@ import org.junit.Test;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
-public class TestAccount {
+public class AccountTest {
 
     @Test
     public void testWithdraw1() {

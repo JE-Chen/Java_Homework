@@ -1,12 +1,12 @@
 import algorithm.student.StudentData;
 import algorithm.student.StudentDataProcess;
 import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
+import org.junit.Test;
 
 import java.io.IOException;
 import java.util.TreeMap;
 
-public class TestStudentDataProcess {
+public class StudentDataProcessTest {
 
     private static StudentData<String, TreeMap<String, Integer>, String, Integer>[] studentDataArray;
 
