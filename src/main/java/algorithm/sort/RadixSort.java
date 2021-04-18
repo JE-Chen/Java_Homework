@@ -37,44 +37,6 @@ public class RadixSort implements SortAlgorithm {
             array[i] = outputArray[i];
     }
 
-
-    public void sort(int[] array, int arrayLength) {
-        int maxNumber = getMax(array, arrayLength);
-        for (int exp = 1; maxNumber / exp > 0; exp *= 10)
-            countSort(array, arrayLength, exp);
-    }
-
-    public void sort(StudentData<String, TreeMap<String, Integer>, String, Integer>[] unsorted) {
-        List<Integer> gradeList = new ArrayList<>();
-        for (StudentData<String, TreeMap<String, Integer>, String, Integer> tempStudentData : unsorted) {
-            gradeList.add(tempStudentData.getSortUseGrade());
-        }
-        int[] array = gradeList.stream().mapToInt(i -> i).toArray();
-        sort(array, array.length);
-        gradeList.clear();
-        for (int tempInt : array)
-            gradeList.add(tempInt);
-        Collections.reverse(gradeList);
-        List<StudentData<String, TreeMap<String, Integer>, String, Integer>> studentDataList = Arrays.asList(unsorted);
-        studentDataList.sort(Comparator.reverseOrder());
-    }
-
-
-    @Override
-    public <T extends Comparable<T>> T[] sort(T[] unsorted) {
-        List<T> unsortedList = Arrays.asList(unsorted);
-        unsortedList.sort(Comparator.reverseOrder());
-        for (int i = 0; i < unsorted.length; i++) {
-            unsorted[i] = unsortedList.get(i);
-        }
-        return unsorted;
-    }
-
-    @Override
-    public String getSortData() {
-        return "使用RadixSort排序";
-    }
-
     public static void main(String[] argv) {
         RadixSort radixSort = new RadixSort();
         int[] array = {170, 45, 75, 90, 802, 24, 2, 66};
@@ -110,6 +72,27 @@ public class RadixSort implements SortAlgorithm {
         studentData[3] = (new StudentData<>(student4TreeMap, "97511", "DS"));
         radixSort.sort(studentData);
         studentData[0].printStudentData(studentData);
+    }
+
+    public void sort(int[] array, int arrayLength) {
+        int maxNumber = getMax(array, arrayLength);
+        for (int exp = 1; maxNumber / exp > 0; exp *= 10)
+            countSort(array, arrayLength, exp);
+    }
+
+    @Override
+    public <T extends Comparable<T>> T[] sort(T[] unsorted) {
+        List<T> unsortedList = Arrays.asList(unsorted);
+        unsortedList.sort(Comparator.reverseOrder());
+        for (int i = 0; i < unsorted.length; i++) {
+            unsorted[i] = unsortedList.get(i);
+        }
+        return unsorted;
+    }
+
+    @Override
+    public String getSortData() {
+        return "使用RadixSort排序";
     }
 
 }

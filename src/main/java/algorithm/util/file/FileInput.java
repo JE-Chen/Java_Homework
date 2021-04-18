@@ -1,0 +1,18 @@
+package algorithm.util.file;
+
+import java.io.*;
+
+public class FileInput {
+
+    public String readFile(File readFile) throws IOException {
+        StringBuilder readDataStringBuilder = new StringBuilder();
+        String temp;
+        BufferedReader bufferedReader = new BufferedReader(new FileReader(readFile));
+        while ((temp = bufferedReader.readLine()) != null) {
+            readDataStringBuilder.append(temp).append("\n\r");
+        }
+        bufferedReader.close();
+        return readDataStringBuilder.toString();
+    }
+
+}

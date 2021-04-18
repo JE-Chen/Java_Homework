@@ -3,7 +3,7 @@ package algorithm.student;
 import javax.swing.*;
 import java.util.TreeMap;
 
-public class StudentData<HashMapKey , HashMapValue extends TreeMap<TreeMapKey, TreeMapValue>, TreeMapKey, TreeMapValue>
+public class StudentData<HashMapKey, HashMapValue extends TreeMap<TreeMapKey, TreeMapValue>, TreeMapKey, TreeMapValue>
         implements Comparable<StudentData<HashMapKey, HashMapValue, TreeMapKey, TreeMapValue>> {
 
     private final TreeMap<TreeMapKey, TreeMapValue> studentTreeMap;
@@ -49,7 +49,7 @@ public class StudentData<HashMapKey , HashMapValue extends TreeMap<TreeMapKey, T
     public String getAllData() {
         StringBuilder studentDataBuilder = new StringBuilder();
         studentDataBuilder.append(studentNumber).append(" ");
-        for(TreeMapKey treeMapKey : studentTreeMap.keySet()){
+        for (TreeMapKey treeMapKey : studentTreeMap.keySet()) {
             studentDataBuilder.append(treeMapKey).append(" ");
             studentDataBuilder.append(studentTreeMap.get(treeMapKey)).append(" ");
         }

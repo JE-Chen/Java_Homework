@@ -7,6 +7,23 @@ public class MergeSort implements SortAlgorithm {
 
     private int compareCount = 0, swapCount = 0;
 
+    public static void main(String[] argv) {
+
+        MergeSort mergeSort = new MergeSort();
+
+        Integer[] integers = {3, 555, 4, 8, 6, 33, 22, 115, 3, 777, 55, 66, 123, 5, 65, 4, 654, 654, 65, 46, 51, 65, 16, 54, 89, 7, 8941, 4, 132, 869, 4, 65, 3, 64};
+        mergeSort.sort(integers);
+        print(integers);
+
+        Integer[] sortedIntegers = {5, 4, 3};
+        mergeSort.sort(sortedIntegers);
+        print(sortedIntegers);
+
+        Character[] characters = {'e', 'k', 'e', 'u', 'n'};
+        mergeSort.sort(characters);
+        print(characters);
+
+    }
 
     /**
      * @param array the array we want to sort
@@ -71,31 +88,12 @@ public class MergeSort implements SortAlgorithm {
         return unsorted;
     }
 
-
     @Override
     public String getSortData() {
         String sortData = String.format("使用MergeSort Sort排序，系統完成排序共比較%d次，交換元素%d次", compareCount, swapCount);
         swapCount = 0;
         compareCount = 0;
         return sortData;
-    }
-
-    public static void main(String[] argv) {
-
-        MergeSort mergeSort = new MergeSort();
-
-        Integer[] integers = {3, 555, 4, 8, 6, 33, 22, 115, 3, 777, 55, 66, 123, 5, 65, 4, 654, 654, 65, 46, 51, 65, 16, 54, 89, 7, 8941, 4, 132, 869, 4, 65, 3, 64};
-        mergeSort.sort(integers);
-        print(integers);
-
-        Integer[] sortedIntegers = {5, 4, 3};
-        mergeSort.sort(sortedIntegers);
-        print(sortedIntegers);
-
-        Character[] characters = {'e', 'k', 'e', 'u', 'n'};
-        mergeSort.sort(characters);
-        print(characters);
-
     }
 
 }

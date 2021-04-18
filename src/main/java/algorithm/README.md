@@ -23,7 +23,7 @@
 
 * SortAlgorithm Interface 定義應該實作的排序
 * SortUtils Sort的功能類別，包含輸出，比較，交換
-* InsertionSort implements SortAlgorithm <br> Insertion sort  T[]  extends comparable
+* InsertionSort implements SortAlgorithm <br> Insertion sort T[]  extends comparable
 * MergeSort implements SortAlgorithm <br> merge sort T[] extends comparable
 * RadixSort implements SortAlgorithm <br> Radix sort T[] extends comparable or int []
 
@@ -34,7 +34,7 @@
 
 ### util package
 
-* File Interface  尚未使用
+* File Interface 尚未使用
 * FileIO 檔案讀取
 * FileUtils 檔案功能
 
@@ -49,3 +49,5 @@
 ### info
 
 * 如果無法使用 Eclipse 編譯請使用 Intellij 編譯
+* 每個排序演算法裡都有main 可以執行
+* src/test 裡面有unit test 

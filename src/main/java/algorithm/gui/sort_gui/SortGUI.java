@@ -7,10 +7,10 @@ import algorithm.sort.RadixSort;
 import algorithm.sort.SortAlgorithm;
 import algorithm.student.StudentData;
 import algorithm.student.StudentDataProcess;
-import algorithm.util.file.FileIO;
+import algorithm.util.file.FileChooser;
+import algorithm.util.file.FileInput;
 
 import javax.swing.*;
-import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyAdapter;
@@ -27,9 +27,13 @@ public class SortGUI extends GuiFather {
     private JPanel jPanel;
     private JLabel sortGUILabel;
     private JTextArea sortOutput;
-    private StudentData<String, TreeMap<String, Integer>, String, Integer>[] studentDataArray;
-    private final FileIO fileIO = new FileIO();
+
+    private final FileInput fileInput = new FileInput();
+    private final FileChooser fileChooser = new FileChooser();
+
     private final StudentDataProcess studentDataProcess = new StudentDataProcess();
+
+    private StudentData<String, TreeMap<String, Integer>, String, Integer>[] studentDataArray;
 
     public SortGUI(String windowName) {
         super(windowName);
@@ -108,8 +112,8 @@ public class SortGUI extends GuiFather {
 
             case "0":
                 try {
-                    File file = fileIO.fileChooser();
-                    String rawStudentDataString = fileIO.readFile(file);
+                    File file = fileChooser.chooseFile();
+                    String rawStudentDataString = fileInput.readFile(file);
                     studentDataArray = studentDataProcess.processRawString(rawStudentDataString);
                 } catch (IOException e) {
                     e.printStackTrace();
