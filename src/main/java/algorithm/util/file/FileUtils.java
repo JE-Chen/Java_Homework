@@ -8,6 +8,7 @@ import java.util.stream.Collectors;
 
 public class FileUtils {
 
+    //TODO test this
     public static void removeLine(File file, String deleteContent) throws IOException {
         List<String> out = Files.lines(file.toPath())
                 .filter(line -> !line.contains(deleteContent))
@@ -15,15 +16,15 @@ public class FileUtils {
         Files.write(file.toPath(), out, StandardOpenOption.WRITE, StandardOpenOption.TRUNCATE_EXISTING);
     }
 
-    public static boolean removeUsingNewFile(File file, String needToDeleteContent) throws IOException {
+    public static boolean removeUsingNewFile(File file, String needDeleteString) throws IOException {
         boolean successful = false;
         File tempFile = new File("temp" + file.getName());
         BufferedReader reader = new BufferedReader(new FileReader(file));
         BufferedWriter writer = new BufferedWriter(new FileWriter(tempFile));
         String currentLine;
         while ((currentLine = reader.readLine()) != null) {
-            String trimmedLine = currentLine.trim();
-            if (trimmedLine.equals(needToDeleteContent))
+            String[] splitString = currentLine.trim().split(" ");
+            if (splitString[0].equals(needDeleteString))
                 continue;
             writer.write(currentLine + System.getProperty("line.separator"));
         }

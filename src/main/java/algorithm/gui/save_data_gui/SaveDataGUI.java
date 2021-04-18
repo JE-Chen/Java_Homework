@@ -1,9 +1,10 @@
 package algorithm.gui.save_data_gui;
 
-import algorithm.gui.GuiFather;
+import algorithm.gui.GUIFather;
 
-public class SaveDataGUI extends GuiFather {
+public class SaveDataGUI extends GUIFather {
 
+    //TODO Save data gui
     public SaveDataGUI(String windowName) {
         super(windowName);
     }

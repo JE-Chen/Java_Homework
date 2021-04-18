@@ -1,6 +1,6 @@
 package algorithm.gui.sort_gui;
 
-import algorithm.gui.GuiFather;
+import algorithm.gui.GUIFather;
 import algorithm.sort.InsertionSort;
 import algorithm.sort.MergeSort;
 import algorithm.sort.RadixSort;
@@ -21,7 +21,7 @@ import java.util.HashMap;
 import java.util.TreeMap;
 
 
-public class SortGUI extends GuiFather {
+public class SortGUI extends GUIFather {
     private JButton sortGUI_determine;
     private JTextField sortGUI_input;
     private JPanel jPanel;
@@ -39,7 +39,6 @@ public class SortGUI extends GuiFather {
         super(windowName);
         setContentPane(jPanel);
         setVisible(true);
-        sortOutput.setEditable(false);
 
         sortGUI_determine.addActionListener(new ActionListener() {
             @Override
