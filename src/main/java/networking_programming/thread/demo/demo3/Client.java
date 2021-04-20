@@ -1,4 +1,4 @@
-package networking_programming.thread.demo3;
+package networking_programming.thread.demo.demo3;
 
 public class Client {
 

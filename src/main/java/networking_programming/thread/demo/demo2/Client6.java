@@ -1,6 +1,6 @@
 //example of using join()
 
-package networking_programming.thread.demo2;
+package networking_programming.thread.demo.demo2;
 
 public class Client6 {
     public static void main(String[] args) {

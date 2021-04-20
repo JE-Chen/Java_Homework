@@ -1,4 +1,4 @@
-package networking_programming.thread.demo1;
+package networking_programming.thread.demo.demo1;
 // simply use a runnable object with a thread name
 
 public class Client2 {

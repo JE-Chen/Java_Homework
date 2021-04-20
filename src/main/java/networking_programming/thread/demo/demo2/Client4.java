@@ -1,6 +1,6 @@
 //Example of wait/notify
 
-package networking_programming.thread.demo2;
+package networking_programming.thread.demo.demo2;
 
 public class Client4 {
     public static void main(String[] args) {

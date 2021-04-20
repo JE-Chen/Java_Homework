@@ -1,4 +1,4 @@
-package networking_programming.thread.demo1;
+package networking_programming.thread.demo.demo1;
 
 //what if both a thread and a runnable object concurrently have their own run()? 
 

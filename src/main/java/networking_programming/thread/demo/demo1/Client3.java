@@ -1,4 +1,4 @@
-package networking_programming.thread.demo1;
+package networking_programming.thread.demo.demo1;
 //multiple threads running 
 
 public class Client3 {

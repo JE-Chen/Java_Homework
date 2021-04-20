@@ -1,4 +1,4 @@
-package networking_programming.thread.demo1;
+package networking_programming.thread.demo.demo1;
 
 // A simplest example: using a single class which extends Thread
 

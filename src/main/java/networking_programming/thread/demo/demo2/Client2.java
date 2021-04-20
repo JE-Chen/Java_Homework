@@ -1,5 +1,5 @@
 //synchronized example 1: lock an irrelevant object
-package networking_programming.thread.demo2;
+package networking_programming.thread.demo.demo2;
 
 public class Client2 {
     public static Object obj = new Object();

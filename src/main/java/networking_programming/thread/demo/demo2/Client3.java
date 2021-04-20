@@ -1,6 +1,6 @@
 //synchronized example 2: lock the running thread object itself
 
-package networking_programming.thread.demo2;
+package networking_programming.thread.demo.demo2;
 
 public class Client3 {
     public static void main(String[] args) throws InterruptedException {

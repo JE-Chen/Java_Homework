@@ -1,6 +1,6 @@
 //multiple threads running example (test with start () and run())  
 
-package networking_programming.thread.demo2;
+package networking_programming.thread.demo.demo2;
 
 public class Client5 {
     public static void main(String[] args) {

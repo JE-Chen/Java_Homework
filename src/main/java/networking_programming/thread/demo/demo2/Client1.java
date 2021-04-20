@@ -1,6 +1,6 @@
 //Wrong example: Thread without a synchronized block
 
-package networking_programming.thread.demo2;
+package networking_programming.thread.demo.demo2;
 
 public class Client1 {
     public static final Object object = new Object();
