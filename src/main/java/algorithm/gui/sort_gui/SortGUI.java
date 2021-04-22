@@ -57,6 +57,8 @@ public class SortGUI extends GUIFather {
             }
         });
 
+        studentDataArray = new StudentData[3];
+
         HashMap<String, TreeMap<String, Integer>> studentHashMap = new HashMap<>();
         TreeMap<String, Integer> student1TreeMap = new TreeMap<>();
         student1TreeMap.put("DS", 80);

@@ -8,15 +8,14 @@ import java.util.stream.Collectors;
 
 public class FileUtils {
 
-    //TODO test this
-    public static void removeLine(File file, String deleteContent) throws IOException {
+    public void removeLine(File file, String deleteContent) throws IOException {
         List<String> out = Files.lines(file.toPath())
                 .filter(line -> !line.contains(deleteContent))
                 .collect(Collectors.toList());
         Files.write(file.toPath(), out, StandardOpenOption.WRITE, StandardOpenOption.TRUNCATE_EXISTING);
     }
 
-    public static boolean removeUsingNewFile(File file, String needDeleteString) throws IOException {
+    public boolean removeUsingNewFile(File file, String needDeleteString) throws IOException {
         boolean successful = false;
         File tempFile = new File("temp" + file.getName());
         BufferedReader reader = new BufferedReader(new FileReader(file));
