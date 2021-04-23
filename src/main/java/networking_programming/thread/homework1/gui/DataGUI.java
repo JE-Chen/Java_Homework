@@ -11,7 +11,6 @@ import java.awt.event.WindowEvent;
 public class DataGUI extends JFrame {
     private JPanel jPanel;
     private JTextArea dataOutput;
-    private JButton slowButton;
 
     private String windowName = "顯示執行結果";
 
