@@ -6,6 +6,11 @@ import java.io.File;
 
 public class FileChooser {
 
+    public static void main(String[] argv) {
+        FileChooser fileChooser = new FileChooser();
+        fileChooser.chooseDir();
+    }
+
     public File chooseFile() {
         File selectedFile = null;
         JFileChooser fileChooser = new JFileChooser();
@@ -29,11 +34,6 @@ public class FileChooser {
             dirFile = dirChooser.getCurrentDirectory();
         System.out.println("選擇資料夾" + dirFile.getName());
         return dirFile;
-    }
-
-    public static void main(String[] argv){
-        FileChooser fileChooser = new FileChooser();
-        fileChooser.chooseDir();
     }
 
 }

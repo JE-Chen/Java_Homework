@@ -1,4 +1,4 @@
-package networking_programming.thread.homework;
+package networking_programming.thread.homework1.util;
 
 public class valueGetter extends Thread {
 

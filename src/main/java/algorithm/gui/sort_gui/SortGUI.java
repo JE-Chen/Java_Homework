@@ -22,17 +22,14 @@ import java.util.TreeMap;
 
 
 public class SortGUI extends GUIFather {
+    private final FileInput fileInput = new FileInput();
+    private final FileChooser fileChooser = new FileChooser();
+    private final StudentDataProcess studentDataProcess = new StudentDataProcess();
     private JButton sortGUI_determine;
     private JTextField sortGUI_input;
     private JPanel jPanel;
     private JLabel sortGUILabel;
     private JTextArea sortOutput;
-
-    private final FileInput fileInput = new FileInput();
-    private final FileChooser fileChooser = new FileChooser();
-
-    private final StudentDataProcess studentDataProcess = new StudentDataProcess();
-
     private StudentData<String, TreeMap<String, Integer>, String, Integer>[] studentDataArray;
 
     public SortGUI(String windowName) {
