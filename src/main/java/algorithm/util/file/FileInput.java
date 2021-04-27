@@ -5,7 +5,7 @@ import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
 
-public class FileInput {
+public class FileInput{
 
     public String readFile(File readFile) throws IOException {
         StringBuilder readDataStringBuilder = new StringBuilder();
