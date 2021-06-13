@@ -8,8 +8,8 @@ import java.io.IOException;
 
 public class FileUtilsTest {
 
-    private static FileUtils fileUtils;
-    private static FileOutput fileOutput;
+    static FileUtils fileUtils;
+    static FileOutput fileOutput;
     private static File tempFile;
 
     @BeforeClass

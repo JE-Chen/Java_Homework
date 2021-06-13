@@ -7,7 +7,6 @@ import algorithm.gui.sudent_data_gui.remove.RemoveStudentDataGUI;
 import algorithm.gui.sudent_data_gui.show.ShowStudentDataGUI;
 
 import javax.swing.*;
-import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyAdapter;
@@ -17,6 +16,7 @@ public class MainForm extends GUIFather {
     private JTextField main_input_choose;
     private JPanel jPanel;
     private JButton main_choose_button;
+
 
     public MainForm(String windowName) {
         super(windowName);
@@ -44,14 +44,16 @@ public class MainForm extends GUIFather {
     private void selectFunction(String selectString) {
         switch (selectString) {
             case "1":
+                new ShowStudentDataGUI("學生資料", "請先選擇檔案後  輸入學生學號及科目");
+                break;
             case "2":
-                new ShowStudentDataGUI("學生資料");
+                new ShowStudentDataGUI("學生資料", "請先選擇檔案後 輸入學生學號");
                 break;
             case "3":
-                new AddStudentDataGUI("增加學生資料");
+                new AddStudentDataGUI("增加學生資料", "請先選擇檔案後 輸入學生學號及科目成績");
                 break;
             case "4":
-                new RemoveStudentDataGUI("刪除學生資料");
+                new RemoveStudentDataGUI("刪除學生資料", "請先選擇檔案後 輸入學生學號");
                 break;
             case "5":
                 new SortGUI("排序頁面");
@@ -61,6 +63,7 @@ public class MainForm extends GUIFather {
                 System.exit(0);
                 break;
             default:
+                JOptionPane.showMessageDialog(null, "未知輸入", "未知輸入錯誤", JOptionPane.ERROR_MESSAGE);
         }
     }
 

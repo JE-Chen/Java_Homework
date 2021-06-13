@@ -50,4 +50,6 @@
 
 * 如果無法使用 Eclipse 編譯請使用 Intellij 編譯
 * 每個排序演算法裡都有main 可以執行
-* src/test 裡面有unit test 
+* src/test/java/algorithm 裡面有unit test
+* 檔案需要事先建好再讀進去
+* 資料結構有更改 增強功能 改為可以排序的HashMap<String, TreeMap<TreeMapKey, TreeMapValue>>

@@ -47,9 +47,9 @@ public class Message {
         }
     }
 
-    private void scrollDown(){
+    private void scrollDown() {
         jTextArea.setCaretPosition(jTextArea.getText().length());
-        if(jTextArea.getLineCount() > 40) {
+        if (jTextArea.getLineCount() > 40) {
             try {
                 Thread.sleep(2000);
             } catch (InterruptedException e) {

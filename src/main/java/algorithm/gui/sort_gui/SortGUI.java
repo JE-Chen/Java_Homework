@@ -11,13 +11,14 @@ import algorithm.util.file.FileChooser;
 import algorithm.util.file.FileInput;
 
 import javax.swing.*;
-import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
 import java.io.File;
 import java.io.IOException;
+import java.util.Arrays;
+import java.util.Comparator;
 import java.util.HashMap;
 import java.util.TreeMap;
 
@@ -112,8 +113,11 @@ public class SortGUI extends GUIFather {
             case "0":
                 try {
                     File file = fileChooser.chooseFile();
-                    String rawStudentDataString = fileInput.readFile(file);
-                    studentDataArray = studentDataProcess.processRawString(rawStudentDataString);
+                    if (file != null) {
+                        String rawStudentDataString = fileInput.readFile(file);
+                        studentDataArray = studentDataProcess.processRawString(rawStudentDataString);
+                    } else
+                        JOptionPane.showMessageDialog(null, "未知輸入", "未知輸入錯誤", JOptionPane.ERROR_MESSAGE);
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
@@ -137,14 +141,20 @@ public class SortGUI extends GUIFather {
             case "DS":
                 setSortType("DS");
                 setSortGUILabel();
+                Arrays.sort(studentDataArray, Comparator.reverseOrder());
+                studentDataArray[0].printStudentData(studentDataArray, sortOutput);
                 break;
             case "DM":
                 setSortType("DM");
                 setSortGUILabel();
+                Arrays.sort(studentDataArray, Comparator.reverseOrder());
+                studentDataArray[0].printStudentData(studentDataArray, sortOutput);
                 break;
             case "LA":
                 setSortType("LA");
                 setSortGUILabel();
+                Arrays.sort(studentDataArray, Comparator.reverseOrder());
+                studentDataArray[0].printStudentData(studentDataArray, sortOutput);
                 break;
         }
     }

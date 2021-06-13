@@ -1,9 +1,11 @@
 package algorithm.student;
 
 import javax.swing.*;
+import java.util.HashMap;
 import java.util.TreeMap;
 
 public class StudentData<HashMapKey, HashMapValue extends TreeMap<TreeMapKey, TreeMapValue>, TreeMapKey, TreeMapValue>
+        extends HashMap<String, TreeMap<TreeMapKey, TreeMapValue>>
         implements Comparable<StudentData<HashMapKey, HashMapValue, TreeMapKey, TreeMapValue>> {
 
     private final TreeMap<TreeMapKey, TreeMapValue> studentTreeMap;
@@ -12,8 +14,9 @@ public class StudentData<HashMapKey, HashMapValue extends TreeMap<TreeMapKey, Tr
 
     public StudentData(TreeMap<TreeMapKey, TreeMapValue> studentTreeMap, String studentNumber, String sortUseType) {
         this.studentTreeMap = studentTreeMap;
-        this.studentNumber = studentNumber;
-        this.sortUseType = sortUseType;
+        this.studentNumber = studentNumber.trim();
+        this.sortUseType = sortUseType.trim();
+        this.put(studentNumber, studentTreeMap);
     }
 
 
@@ -46,9 +49,26 @@ public class StudentData<HashMapKey, HashMapValue extends TreeMap<TreeMapKey, Tr
         return (Integer) this.studentTreeMap.get(this.sortUseType);
     }
 
+    public String getStudentNumber() {
+        return this.studentNumber;
+    }
+
+    public TreeMap<TreeMapKey, TreeMapValue> getStudentTreeMap() {
+        return this.studentTreeMap;
+    }
+
     public String getAllData() {
         StringBuilder studentDataBuilder = new StringBuilder();
         studentDataBuilder.append(studentNumber).append(" ");
+        for (TreeMapKey treeMapKey : studentTreeMap.keySet()) {
+            studentDataBuilder.append(treeMapKey).append(" ");
+            studentDataBuilder.append(studentTreeMap.get(treeMapKey)).append(" ");
+        }
+        return studentDataBuilder.toString();
+    }
+
+    public String getAllDataNoStudentNumber() {
+        StringBuilder studentDataBuilder = new StringBuilder();
         for (TreeMapKey treeMapKey : studentTreeMap.keySet()) {
             studentDataBuilder.append(treeMapKey).append(" ");
             studentDataBuilder.append(studentTreeMap.get(treeMapKey)).append(" ");

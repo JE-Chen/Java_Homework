@@ -5,7 +5,6 @@ import networking_programming.thread.homework1.util.valueGetter;
 import networking_programming.thread.homework1.util.valuePutter;
 
 import javax.swing.*;
-import java.awt.*;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 

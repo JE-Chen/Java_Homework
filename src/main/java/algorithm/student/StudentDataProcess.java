@@ -18,7 +18,13 @@ public class StudentDataProcess {
         String temp;
         Reader stringReader = new StringReader(rawString);
         BufferedReader bufferedReader = new BufferedReader(stringReader);
-        while ((temp = bufferedReader.readLine()) != null) {
+        while (true) {
+            temp = bufferedReader.readLine();
+            if (temp == null)
+                break;
+            if (temp.equals("") || temp.equals(System.lineSeparator()))
+                continue;
+            System.out.println("Process StudentData:\t" + temp);
             rawStringList.add(temp.split(" "));
             stringLineCount++;
         }
@@ -31,7 +37,7 @@ public class StudentDataProcess {
         for (int forCount = 0; forCount < stringLineCount; forCount++) {
             TreeMap<String, Integer> treeMap = new TreeMap<>();
             rawStringArray = rawStringList.get(forCount);
-            String studentNumber = rawStringArray[0];
+            String studentNumber = rawStringArray[0].trim();
             for (int processStudentForInteger = 1; processStudentForInteger < (rawStringArray.length - 1); processStudentForInteger += 2) {
                 treeMap.put(rawStringArray[processStudentForInteger], Integer.valueOf(rawStringArray[processStudentForInteger + 1]));
             }
