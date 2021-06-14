@@ -1,10 +1,10 @@
 package algorithm.gui.sort_gui;
 
 import algorithm.gui.GUIFather;
-import algorithm.sort.InsertionSort;
-import algorithm.sort.MergeSort;
-import algorithm.sort.RadixSort;
-import algorithm.sort.SortAlgorithm;
+import algorithm.util.sort.InsertionSort;
+import algorithm.util.sort.MergeSort;
+import algorithm.util.sort.RadixSort;
+import algorithm.util.sort.SortAlgorithm;
 import algorithm.student.StudentData;
 import algorithm.student.StudentDataProcess;
 import algorithm.util.file.FileChooser;

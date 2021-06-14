@@ -97,22 +97,21 @@ public class ShowStudentDataGUI extends GUIFather {
                 }
                 String studentNumber = dataTemp[0];
                 String subject = dataTemp[1];
-                for (int i = 0; i < studentDataArray.length; i++) {
-                    if (studentDataArray[i].getStudentTreeMap().size() == 0) {
+                for (StudentData<String, TreeMap<String, Integer>, String, Integer> stringTreeMapStringIntegerStudentData : studentDataArray) {
+                    if (stringTreeMapStringIntegerStudentData.getStudentTreeMap().size() == 0) {
                         showStudentDataArea.append(studentNumber + " 此學生並無修課\n");
                         noCourseFlag = true;
                         break;
                     }
-                    if (studentDataArray[i].getStudentNumber().equals(studentNumber)) {
-                        if (studentDataArray[i].getStudentTreeMap().get(subject) != null) {
-                            StringBuilder stringBuilder = new StringBuilder();
-                            stringBuilder.append(studentNumber)
-                                    .append(" 學生的 ")
-                                    .append(subject)
-                                    .append(" 分數為 ")
-                                    .append(studentDataArray[i].getStudentTreeMap().get(subject))
-                                    .append("\n");
-                            showStudentDataArea.append(stringBuilder.toString());
+                    if (stringTreeMapStringIntegerStudentData.getStudentNumber().equals(studentNumber)) {
+                        if (stringTreeMapStringIntegerStudentData.getStudentTreeMap().get(subject) != null) {
+                            String temp = studentNumber +
+                                    " 學生的 " +
+                                    subject +
+                                    " 分數為 " +
+                                    stringTreeMapStringIntegerStudentData.getStudentTreeMap().get(subject) +
+                                    "\n";
+                            showStudentDataArea.append(temp);
                             findStudentSubjectDataFlag = true;
                         }
                         findStudentNumberDataFlag = true;
@@ -124,21 +123,20 @@ public class ShowStudentDataGUI extends GUIFather {
                     showStudentDataArea.append("無 " + studentNumber + " 的 " + subject + " 科目 成績\n");
                 break;
             case "全部":
-                for (int i = 0; i < studentDataArray.length; i++) {
-                    if (studentDataArray[i].getStudentTreeMap().size() == 0) {
+                for (StudentData<String, TreeMap<String, Integer>, String, Integer> stringTreeMapStringIntegerStudentData : studentDataArray) {
+                    if (stringTreeMapStringIntegerStudentData.getStudentTreeMap().size() == 0) {
                         showStudentDataArea.append(sourceString + " 此學生並無修課\n");
                         noCourseFlag = true;
                         break;
                     }
-                    if (studentDataArray[i].getStudentNumber().equals(sourceString)) {
-                        StringBuilder stringBuilder = new StringBuilder();
-                        stringBuilder.append(sourceString)
-                                .append(" 學生的 ")
-                                .append(" 分數為 ")
-                                .append(studentDataArray[i].getAllDataNoStudentNumber())
-                                .append("\n");
+                    if (stringTreeMapStringIntegerStudentData.getStudentNumber().equals(sourceString)) {
                         findStudentNumberDataFlag = true;
-                        showStudentDataArea.append(stringBuilder.toString());
+                        String temp = sourceString +
+                                " 學生的 " +
+                                " 分數為 " +
+                                stringTreeMapStringIntegerStudentData.getAllDataNoStudentNumber() +
+                                "\n";
+                        showStudentDataArea.append(temp);
                     }
                 }
                 if (!findStudentNumberDataFlag && !noCourseFlag)

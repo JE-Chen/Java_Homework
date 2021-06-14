@@ -41,7 +41,7 @@ public class RemoveStudentDataGUI extends GUIFather {
         removeButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                if (!tempString.equals(""))
+                if (!tempString.equals("") && tempFile != null)
                     removeData(inputRemoveTextField.getText());
                 else
                     JOptionPane.showMessageDialog(null, "未知資料", "資料錯誤", JOptionPane.ERROR_MESSAGE);
@@ -67,6 +67,7 @@ public class RemoveStudentDataGUI extends GUIFather {
             tempFile = fileChooser.chooseFile();
             if (tempFile != null) {
                 tempString = fileInput.readFile(tempFile);
+                outputTextArea.append("讀檔成功\n");
             } else
                 JOptionPane.showMessageDialog(null, "未知輸入", "未知輸入錯誤", JOptionPane.ERROR_MESSAGE);
         } catch (IOException e) {
@@ -76,7 +77,7 @@ public class RemoveStudentDataGUI extends GUIFather {
 
     private void removeData(String removeStudentNumber) {
         try {
-            fileUtils.removeUsingNewFile(tempFile, removeStudentNumber);
+            outputTextArea.append("刪除 " + (fileUtils.removeUsingNewFile(tempFile, removeStudentNumber) ? "成功" : "失敗") + "\n");
         } catch (IOException e) {
             e.printStackTrace();
         }

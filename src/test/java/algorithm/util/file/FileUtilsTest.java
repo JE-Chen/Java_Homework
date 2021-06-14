@@ -20,7 +20,7 @@ public class FileUtilsTest {
         try {
             fileOutput.writeFile(tempFile, "123 111\n" +
                     "456 222\n" +
-                    "789 333");
+                    "789 333", false);
         } catch (IOException e) {
             e.printStackTrace();
         }

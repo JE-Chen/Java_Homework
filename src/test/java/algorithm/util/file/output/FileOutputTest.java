@@ -14,7 +14,7 @@ public class FileOutputTest {
         FileOutput fileOutput = new FileOutput();
         File file = new File("test.txt");
         try {
-            fileOutput.writeFile(file, "Test");
+            fileOutput.writeFile(file, "Test", false);
         } catch (IOException e) {
             e.printStackTrace();
         }
