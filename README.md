@@ -1,1 +1,1 @@
-# Java_Homework
+# 詳情請看 src/main/java/algorithm/README.MD
